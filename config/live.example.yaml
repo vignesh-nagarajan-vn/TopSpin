@@ -1,0 +1,16 @@
+# EXAMPLE ONLY. Copy to config/live.yaml and edit by hand after every research gate
+# has passed (docs/operator-runbook.md, Gate 5). Never commit config/live.yaml.
+#
+# Live mode additionally requires:
+#   * POLYMARKET_KEY_ID / POLYMARKET_SECRET_KEY in the environment (never in files),
+#   * config/live_authorization.yaml written by the operator (see the runbook),
+#   * reports/gate_evidence.json showing Gates 1-4 passed.
+operations:
+  mode: live
+
+live:
+  enabled: false          # the operator sets this to true, by hand
+  max_order_value: "0"    # the operator sets a positive per-order USD cap, by hand
+
+risk:
+  bankroll: "0"           # must be set to the real allocated capital; validation rejects 0

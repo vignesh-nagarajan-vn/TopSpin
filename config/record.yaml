@@ -1,0 +1,3 @@
+# Record mode overlay: collect and validate data only. No signals, no orders.
+operations:
+  mode: record

@@ -1,0 +1,3171 @@
+[
+ {
+  "id": "200737",
+  "ticker": "atp-omajas-yunchu-2026-10-30",
+  "slug": "atp-omajas-yunchu-2026-10-30",
+  "title": "Omar Jasika vs. Yun Seong Chung",
+  "description": "Omar Jasika vs. Yun Seong Chung",
+  "startDate": "2026-10-30T03:50:00Z",
+  "endDate": "2026-10-31T03:59:00Z",
+  "active": true,
+  "closed": false,
+  "archived": false,
+  "category": "sports",
+  "createdAt": "2026-10-28T05:00:20Z",
+  "updatedAt": "2026-10-30T04:41:36Z",
+  "startTime": "2026-10-30T03:50:00Z",
+  "seriesSlug": "atp-2026",
+  "score": "6-3, 1-2:15-15",
+  "period": "S2",
+  "live": true,
+  "ended": false,
+  "markets": [
+   {
+    "id": "1896374",
+    "question": "Who will win in the upcoming atp event Omar Jasika vs Yun Seong Chung scheduled for October 30, 2026 at 5:00 AM UTC?",
+    "slug": "aec-atp-omajas-yunchu-2026-10-30",
+    "endDate": "2026-11-13T10:00:00Z",
+    "category": "sports",
+    "startDate": "2026-10-28T05:00:19Z",
+    "description": "This market will settle to the winner of the Omar Jasika vs Yun Seong Chung ATP match scheduled for October 30, 2026 at 1:00AM ET (as of the listing of the event's first instrument). If the match does not begin due to a walkover, withdrawal, or cancellation, the market will settle to the last fair market price. If a player retires or is disqualified during the match, the market will settle to the official winner of the match. If the match is delayed, postponed, suspended or otherwise rescheduled to a date and time not within two days of the originally scheduled date and time, the market will settle to the last fair market price. Outcome sourced from ATP.",
+    "active": true,
+    "marketType": "moneyline",
+    "closed": false,
+    "createdAt": "2026-10-28T05:00:20Z",
+    "updatedAt": "2026-10-30T04:15:39Z",
+    "archived": false,
+    "orderPriceMinTickSize": 0.01,
+    "gameStartTime": "2026-10-30T03:50:00Z",
+    "manualActivation": false,
+    "sportsMarketType": "tennis_match_winner",
+    "marketSides": [
+     {
+      "id": "3792214",
+      "marketSideType": "MARKET_SIDE_TYPE_INSTRUMENT",
+      "identifier": "aec-atp-omajas-yunchu-2026-10-30",
+      "createdAt": "2026-10-28T05:00:20Z",
+      "updatedAt": "2026-10-28T05:00:20Z",
+      "description": "Omar Jasika",
+      "price": "0.7700",
+      "marketId": 1896374,
+      "long": true,
+      "teamId": 4716,
+      "team": {
+       "id": 4716,
+       "name": "Omar Jasika",
+       "abbreviation": "omajas",
+       "league": "atp",
+       "record": "",
+       "logo": "https://static.polymarket.us/images/teams/tennis/atp/4716.png",
+       "alias": "Omar Jasika",
+       "safeName": "Omar Jasika",
+       "colorPrimary": "#00008B",
+       "ordering": "home",
+       "longIcon": "https://static.polymarket.us/images/teams/tennis/atp/4716.png",
+       "shortIcon": "https://static.polymarket.us/images/teams/tennis/atp/4716.png",
+       "displayAbbreviation": "Jasika",
+       "ranking": "386",
+       "providerIds": [
+        {
+         "provider": "PROVIDER_ENETPULSE",
+         "providerId": "389308"
+        },
+        {
+         "provider": "PROVIDER_SPORTRADAR",
+         "providerId": "sr:competitor:79467"
+        }
+       ],
+       "longIconDark": "https://static.polymarket.us/images/teams/tennis/atp/4716.png",
+       "shortIconDark": "https://static.polymarket.us/images/teams/tennis/atp/4716.png",
+       "color": {
+        "light": "#00008B",
+        "dark": "#3357D2"
+       },
+       "imageDisplayType": "IMAGE_DISPLAY_TYPE_HEADSHOT"
+      },
+      "quote": {
+       "value": "0.7800",
+       "currency": "USD"
+      },
+      "tradable": true
+     },
+     {
+      "id": "3792215",
+      "marketSideType": "MARKET_SIDE_TYPE_INSTRUMENT",
+      "identifier": "aec-atp-omajas-yunchu-2026-10-30",
+      "createdAt": "2026-10-28T05:00:20Z",
+      "updatedAt": "2026-10-28T05:00:20Z",
+      "description": "Yun-Seong Chung",
+      "price": "0.7800",
+      "marketId": 1896374,
+      "long": false,
+      "teamId": 4944,
+      "team": {
+       "id": 4944,
+       "name": "Yun-Seong Chung",
+       "abbreviation": "yunchu",
+       "league": "atp",
+       "record": "",
+       "logo": "https://static.polymarket.us/images/teams/tennis/atp/4944.png",
+       "alias": "Yun-Seong Chung",
+       "safeName": "Yun-Seong Chung",
+       "colorPrimary": "#CD2E3A",
+       "ordering": "away",
+       "longIcon": "https://static.polymarket.us/images/teams/tennis/atp/4944.png",
+       "shortIcon": "https://static.polymarket.us/images/teams/tennis/atp/4944.png",
+       "displayAbbreviation": "Chung",
+       "ranking": "874",
+       "providerIds": [
+        {
+         "provider": "PROVIDER_ENETPULSE",
+         "providerId": "446691"
+        },
+        {
+         "provider": "PROVIDER_SPORTRADAR",
+         "providerId": "sr:competitor:99587"
+        }
+       ],
+       "longIconDark": "https://static.polymarket.us/images/teams/tennis/atp/4944.png",
+       "shortIconDark": "https://static.polymarket.us/images/teams/tennis/atp/4944.png",
+       "color": {
+        "light": "#CD2E3A",
+        "dark": "#CD2E3A"
+       },
+       "imageDisplayType": "IMAGE_DISPLAY_TYPE_HEADSHOT"
+      },
+      "quote": {
+       "value": "0.23",
+       "currency": "USD"
+      },
+      "tradable": true
+     }
+    ],
+    "outcomes": "[\"Omar Jasika\",\"Yun-Seong Chung\"]",
+    "outcomePrices": "[\"0.7700\",\"0.7800\"]",
+    "ep3Status": "OPEN",
+    "status": "MARKET_STATUS_OPEN",
+    "assetPriceTerms": null,
+    "sportsMarketTypeV2": "SPORTS_MARKET_TYPE_MONEYLINE",
+    "hidden": false,
+    "tags": [],
+    "title": "Omar Jasika vs Yun-Seong Chung",
+    "feeCoefficient": 0.0695,
+    "bestBidQuote": {
+     "value": "0.7700",
+     "currency": "USD"
+    },
+    "bestAskQuote": {
+     "value": "0.7800",
+     "currency": "USD"
+    },
+    "titleShort": "Jasika vs Chung",
+    "ep3SyncedAt": "2026-10-30T03:45:11Z",
+    "minimumTradeQty": 0.01,
+    "comboEnabled": true,
+    "politics": null
+   }
+  ],
+  "sportradarGameId": "sr:sport_event:75837714",
+  "eventState": {
+   "id": 140623062,
+   "sportradarGameId": "sr:sport_event:75837714",
+   "type": "tennis",
+   "createdAt": "2026-10-30T02:55:06.266570Z",
+   "updatedAt": "2026-10-30T04:42:06.486099Z",
+   "score": "6-3, 1-2:15-15",
+   "period": "S2",
+   "live": true,
+   "ended": false,
+   "tennisState": {
+    "tournamentName": "ATP Challenger Seoul, Korea Republic Men Singles",
+    "round": "Quarterfinal",
+    "servingTeamId": 4716
+   },
+   "marketGroupStats": [],
+   "periodScores": [
+    {
+     "number": 1,
+     "type": "PERIOD_SCORE_TYPE_REGULATION",
+     "label": "S1",
+     "scores": [
+      {
+       "competitorId": "4716",
+       "score": 6
+      },
+      {
+       "competitorId": "4944",
+       "score": 3
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "type": "PERIOD_SCORE_TYPE_REGULATION",
+     "label": "S2",
+     "scores": [
+      {
+       "competitorId": "4716",
+       "score": 1
+      },
+      {
+       "competitorId": "4944",
+       "score": 2
+      }
+     ]
+    }
+   ],
+   "eventId": 200737
+  },
+  "participants": [],
+  "hidden": false,
+  "teams": [
+   {
+    "id": 4716,
+    "name": "Omar Jasika",
+    "abbreviation": "omajas",
+    "league": "atp",
+    "record": "",
+    "logo": "https://static.polymarket.us/images/teams/tennis/atp/4716.png",
+    "alias": "Omar Jasika",
+    "safeName": "Omar Jasika",
+    "colorPrimary": "#00008B",
+    "longIcon": "https://static.polymarket.us/images/teams/tennis/atp/4716.png",
+    "shortIcon": "https://static.polymarket.us/images/teams/tennis/atp/4716.png",
+    "displayAbbreviation": "Jasika",
+    "ranking": "386",
+    "providerIds": [
+     {
+      "provider": "PROVIDER_ENETPULSE",
+      "providerId": "389308"
+     },
+     {
+      "provider": "PROVIDER_SPORTRADAR",
+      "providerId": "sr:competitor:79467"
+     }
+    ],
+    "longIconDark": "https://static.polymarket.us/images/teams/tennis/atp/4716.png",
+    "shortIconDark": "https://static.polymarket.us/images/teams/tennis/atp/4716.png",
+    "color": {
+     "light": "#00008B",
+     "dark": "#3357D2"
+    },
+    "imageDisplayType": "IMAGE_DISPLAY_TYPE_HEADSHOT"
+   },
+   {
+    "id": 4944,
+    "name": "Yun-Seong Chung",
+    "abbreviation": "yunchu",
+    "league": "atp",
+    "record": "",
+    "logo": "https://static.polymarket.us/images/teams/tennis/atp/4944.png",
+    "alias": "Yun-Seong Chung",
+    "safeName": "Yun-Seong Chung",
+    "colorPrimary": "#CD2E3A",
+    "longIcon": "https://static.polymarket.us/images/teams/tennis/atp/4944.png",
+    "shortIcon": "https://static.polymarket.us/images/teams/tennis/atp/4944.png",
+    "displayAbbreviation": "Chung",
+    "ranking": "874",
+    "providerIds": [
+     {
+      "provider": "PROVIDER_ENETPULSE",
+      "providerId": "446691"
+     },
+     {
+      "provider": "PROVIDER_SPORTRADAR",
+      "providerId": "sr:competitor:99587"
+     }
+    ],
+    "longIconDark": "https://static.polymarket.us/images/teams/tennis/atp/4944.png",
+    "shortIconDark": "https://static.polymarket.us/images/teams/tennis/atp/4944.png",
+    "color": {
+     "light": "#CD2E3A",
+     "dark": "#CD2E3A"
+    },
+    "imageDisplayType": "IMAGE_DISPLAY_TYPE_HEADSHOT"
+   }
+  ],
+  "metadata": {
+   "politics": null,
+   "gameState": {
+    "id": 140623062,
+    "sportradarGameId": "sr:sport_event:75837714",
+    "type": "tennis",
+    "createdAt": "2026-10-30T02:55:06.266570Z",
+    "updatedAt": "2026-10-30T04:42:06.486099Z",
+    "score": "6-3, 1-2:15-15",
+    "period": "S2",
+    "live": true,
+    "ended": false,
+    "tennisState": {
+     "tournamentName": "ATP Challenger Seoul, Korea Republic Men Singles",
+     "round": "Quarterfinal",
+     "servingTeamId": 4716
+    },
+    "marketGroupStats": [],
+    "periodScores": [
+     {
+      "number": 1,
+      "type": "PERIOD_SCORE_TYPE_REGULATION",
+      "label": "S1",
+      "scores": [
+       {
+        "competitorId": "4716",
+        "score": 6
+       },
+       {
+        "competitorId": "4944",
+        "score": 3
+       }
+      ]
+     },
+     {
+      "number": 2,
+      "type": "PERIOD_SCORE_TYPE_REGULATION",
+      "label": "S2",
+      "scores": [
+       {
+        "competitorId": "4716",
+        "score": 1
+       },
+       {
+        "competitorId": "4944",
+        "score": 2
+       }
+      ]
+     }
+    ],
+    "eventId": 0
+   }
+  },
+  "sortType": "price",
+  "primaryTag": {
+   "id": "23",
+   "label": "ATP",
+   "slug": "atp",
+   "updatedAt": "2026-10-30T04:18:02Z",
+   "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/random-team-images/tennis/APT-NEW.png",
+   "tradable": false,
+   "league": {
+    "id": 12,
+    "name": "ATP",
+    "sportId": 8,
+    "tagId": 23,
+    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/random-team-images/tennis/APT-NEW.png",
+    "ordering": "home",
+    "activeSeriesId": 16,
+    "isOperational": true,
+    "automaticResolution": false,
+    "createdAt": "2026-03-20T19:11:04Z",
+    "slug": "atp"
+   },
+   "subtags": [],
+   "hub": null,
+   "featuredEventIds": []
+  },
+  "streamProvider": "sportradar",
+  "streamRequiresAuth": true,
+  "marketCounts": {
+   "numMarkets": 19,
+   "numSpreadsAndTotalsMarkets": 12
+  },
+  "fixtureId": "",
+  "payoutEstimateMessage": "",
+  "payoutEstimateTime": ""
+ },
+ {
+  "id": "201069",
+  "ticker": "atp-meralk-yuhhsu-2026-10-29",
+  "slug": "atp-meralk-yuhhsu-2026-10-29",
+  "title": "Mert Alkaya vs. Yu Hsiou Hsu",
+  "description": "Mert Alkaya vs. Yu Hsiou Hsu",
+  "startDate": "2026-10-30T05:10:00Z",
+  "endDate": "2026-10-31T03:59:00Z",
+  "active": true,
+  "closed": false,
+  "archived": false,
+  "category": "sports",
+  "createdAt": "2026-10-28T08:00:17Z",
+  "updatedAt": "2026-10-30T02:57:51Z",
+  "startTime": "2026-10-30T05:10:00Z",
+  "seriesSlug": "atp-2026",
+  "period": "NS",
+  "markets": [
+   {
+    "id": "1900897",
+    "question": "Who will win in the upcoming atp event Mert Alkaya vs Yu Hsiou Hsu scheduled for October 30, 2026 at 2:00 AM UTC?",
+    "slug": "aec-atp-meralk-yuhhsu-2026-10-29",
+    "endDate": "2026-11-13T07:00:00Z",
+    "category": "sports",
+    "startDate": "2026-10-28T08:00:16Z",
+    "description": "This market will settle to the winner of the Mert Alkaya vs Yu Hsiou Hsu ATP match scheduled for October 29, 2026 at 10:00PM ET (as of the listing of the event's first instrument). If the match does not begin due to a walkover, withdrawal, or cancellation, the market will settle to the last fair market price. If a player retires or is disqualified during the match, the market will settle to the official winner of the match. If the match is delayed, postponed, suspended or otherwise rescheduled to a date and time not within two days of the originally scheduled date and time, the market will settle to the last fair market price. Outcome sourced from ATP.",
+    "active": true,
+    "marketType": "moneyline",
+    "closed": false,
+    "createdAt": "2026-10-28T08:00:17Z",
+    "updatedAt": "2026-10-30T02:57:51Z",
+    "archived": false,
+    "orderPriceMinTickSize": 0.01,
+    "gameStartTime": "2026-10-30T05:10:00Z",
+    "manualActivation": false,
+    "sportsMarketType": "tennis_match_winner",
+    "marketSides": [
+     {
+      "id": "3801260",
+      "marketSideType": "MARKET_SIDE_TYPE_INSTRUMENT",
+      "identifier": "aec-atp-meralk-yuhhsu-2026-10-29",
+      "createdAt": "2026-10-28T08:00:17Z",
+      "updatedAt": "2026-10-28T08:00:17Z",
+      "description": "Mert Alkaya",
+      "price": "0.4400",
+      "marketId": 1900897,
+      "long": true,
+      "teamId": 5276,
+      "team": {
+       "id": 5276,
+       "name": "Mert Alkaya",
+       "abbreviation": "meralk",
+       "league": "atp",
+       "record": "",
+       "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/un.png",
+       "alias": "Mert Alkaya",
+       "safeName": "Mert Alkaya",
+       "colorPrimary": "#0000FF",
+       "ordering": "home",
+       "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/un.png",
+       "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/un.png",
+       "displayAbbreviation": "Alkaya",
+       "ranking": "327",
+       "providerIds": [
+        {
+         "provider": "PROVIDER_ENETPULSE",
+         "providerId": "677590"
+        },
+        {
+         "provider": "PROVIDER_SPORTRADAR",
+         "providerId": "sr:competitor:211992"
+        }
+       ],
+       "longIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/un.png",
+       "shortIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/un.png",
+       "color": {
+        "light": "#0000FF",
+        "dark": "#1A40FF"
+       },
+       "imageDisplayType": "IMAGE_DISPLAY_TYPE_FLAG"
+      },
+      "quote": {
+       "value": "0.4500",
+       "currency": "USD"
+      },
+      "tradable": true
+     },
+     {
+      "id": "3801261",
+      "marketSideType": "MARKET_SIDE_TYPE_INSTRUMENT",
+      "identifier": "aec-atp-meralk-yuhhsu-2026-10-29",
+      "createdAt": "2026-10-28T08:00:17Z",
+      "updatedAt": "2026-10-28T08:00:17Z",
+      "description": "Yu-Hsiou Hsu",
+      "price": "0.4500",
+      "marketId": 1900897,
+      "long": false,
+      "teamId": 3229,
+      "team": {
+       "id": 3229,
+       "name": "Yu-Hsiou Hsu",
+       "abbreviation": "yuhhsu",
+       "league": "atp",
+       "record": "",
+       "logo": "https://static.polymarket.us/images/teams/tennis/atp/3229.png",
+       "alias": "Yu-Hsiou Hsu",
+       "safeName": "Yu-Hsiou Hsu",
+       "colorPrimary": "#EF0000",
+       "ordering": "away",
+       "longIcon": "https://static.polymarket.us/images/teams/tennis/atp/3229.png",
+       "shortIcon": "https://static.polymarket.us/images/teams/tennis/atp/3229.png",
+       "displayAbbreviation": "Hsu",
+       "ranking": "330",
+       "providerIds": [
+        {
+         "provider": "PROVIDER_ENETPULSE",
+         "providerId": "673758"
+        },
+        {
+         "provider": "PROVIDER_SPORTRADAR",
+         "providerId": "sr:competitor:220588"
+        }
+       ],
+       "longIconDark": "https://static.polymarket.us/images/teams/tennis/atp/3229.png",
+       "shortIconDark": "https://static.polymarket.us/images/teams/tennis/atp/3229.png",
+       "color": {
+        "light": "#EF0000",
+        "dark": "#EF0000"
+       },
+       "imageDisplayType": "IMAGE_DISPLAY_TYPE_HEADSHOT"
+      },
+      "quote": {
+       "value": "0.56",
+       "currency": "USD"
+      },
+      "tradable": true
+     }
+    ],
+    "outcomes": "[\"Mert Alkaya\",\"Yu-Hsiou Hsu\"]",
+    "outcomePrices": "[\"0.4400\",\"0.4500\"]",
+    "ep3Status": "OPEN",
+    "status": "MARKET_STATUS_OPEN",
+    "assetPriceTerms": null,
+    "sportsMarketTypeV2": "SPORTS_MARKET_TYPE_MONEYLINE",
+    "hidden": false,
+    "tags": [],
+    "title": "Mert Alkaya vs Yu-Hsiou Hsu",
+    "feeCoefficient": 0.0695,
+    "bestBidQuote": {
+     "value": "0.4400",
+     "currency": "USD"
+    },
+    "bestAskQuote": {
+     "value": "0.4500",
+     "currency": "USD"
+    },
+    "titleShort": "Alkaya vs Hsu",
+    "ep3SyncedAt": "2026-10-29T12:15:17Z",
+    "minimumTradeQty": 0.01,
+    "comboEnabled": true,
+    "politics": null
+   }
+  ],
+  "sportradarGameId": "sr:sport_event:75837960",
+  "participants": [],
+  "hidden": false,
+  "teams": [
+   {
+    "id": 5276,
+    "name": "Mert Alkaya",
+    "abbreviation": "meralk",
+    "league": "atp",
+    "record": "",
+    "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/un.png",
+    "alias": "Mert Alkaya",
+    "safeName": "Mert Alkaya",
+    "colorPrimary": "#0000FF",
+    "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/un.png",
+    "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/un.png",
+    "displayAbbreviation": "Alkaya",
+    "ranking": "327",
+    "providerIds": [
+     {
+      "provider": "PROVIDER_ENETPULSE",
+      "providerId": "677590"
+     },
+     {
+      "provider": "PROVIDER_SPORTRADAR",
+      "providerId": "sr:competitor:211992"
+     }
+    ],
+    "longIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/un.png",
+    "shortIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/un.png",
+    "color": {
+     "light": "#0000FF",
+     "dark": "#1A40FF"
+    },
+    "imageDisplayType": "IMAGE_DISPLAY_TYPE_FLAG"
+   },
+   {
+    "id": 3229,
+    "name": "Yu-Hsiou Hsu",
+    "abbreviation": "yuhhsu",
+    "league": "atp",
+    "record": "",
+    "logo": "https://static.polymarket.us/images/teams/tennis/atp/3229.png",
+    "alias": "Yu-Hsiou Hsu",
+    "safeName": "Yu-Hsiou Hsu",
+    "colorPrimary": "#EF0000",
+    "longIcon": "https://static.polymarket.us/images/teams/tennis/atp/3229.png",
+    "shortIcon": "https://static.polymarket.us/images/teams/tennis/atp/3229.png",
+    "displayAbbreviation": "Hsu",
+    "ranking": "330",
+    "providerIds": [
+     {
+      "provider": "PROVIDER_ENETPULSE",
+      "providerId": "673758"
+     },
+     {
+      "provider": "PROVIDER_SPORTRADAR",
+      "providerId": "sr:competitor:220588"
+     }
+    ],
+    "longIconDark": "https://static.polymarket.us/images/teams/tennis/atp/3229.png",
+    "shortIconDark": "https://static.polymarket.us/images/teams/tennis/atp/3229.png",
+    "color": {
+     "light": "#EF0000",
+     "dark": "#EF0000"
+    },
+    "imageDisplayType": "IMAGE_DISPLAY_TYPE_HEADSHOT"
+   }
+  ],
+  "sortType": "price",
+  "primaryTag": {
+   "id": "23",
+   "label": "ATP",
+   "slug": "atp",
+   "updatedAt": "2026-10-30T04:18:02Z",
+   "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/random-team-images/tennis/APT-NEW.png",
+   "tradable": false,
+   "league": {
+    "id": 12,
+    "name": "ATP",
+    "sportId": 8,
+    "tagId": 23,
+    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/random-team-images/tennis/APT-NEW.png",
+    "ordering": "home",
+    "activeSeriesId": 16,
+    "isOperational": true,
+    "automaticResolution": false,
+    "createdAt": "2026-03-20T19:11:04Z",
+    "slug": "atp"
+   },
+   "subtags": [],
+   "hub": null,
+   "featuredEventIds": []
+  },
+  "streamProvider": "sportradar",
+  "streamRequiresAuth": true,
+  "marketCounts": {
+   "numMarkets": 19,
+   "numSpreadsAndTotalsMarkets": 12
+  },
+  "fixtureId": "",
+  "payoutEstimateMessage": "",
+  "payoutEstimateTime": ""
+ },
+ {
+  "id": "201072",
+  "ticker": "atp-yardem-harmay-2026-10-29",
+  "slug": "atp-yardem-harmay-2026-10-29",
+  "title": "Yaroslav Demin vs. Harold Mayot",
+  "description": "Yaroslav Demin vs. Harold Mayot",
+  "startDate": "2026-10-30T04:00:00Z",
+  "endDate": "2026-10-31T03:59:00Z",
+  "active": true,
+  "closed": false,
+  "archived": false,
+  "category": "sports",
+  "createdAt": "2026-10-28T08:00:18Z",
+  "updatedAt": "2026-10-30T04:41:19Z",
+  "startTime": "2026-10-30T04:00:00Z",
+  "seriesSlug": "atp-2026",
+  "score": "3-3:30-0",
+  "period": "S1",
+  "live": true,
+  "ended": false,
+  "markets": [
+   {
+    "id": "1900900",
+    "question": "Who will win in the upcoming atp event Yaroslav Demin vs Harold Mayot scheduled for October 30, 2026 at 2:00 AM UTC?",
+    "slug": "aec-atp-yardem-harmay-2026-10-29",
+    "endDate": "2026-11-13T07:00:00Z",
+    "category": "sports",
+    "startDate": "2026-10-28T08:00:18Z",
+    "description": "This market will settle to the winner of the Yaroslav Demin vs Harold Mayot ATP match scheduled for October 29, 2026 at 10:00PM ET (as of the listing of the event's first instrument). If the match does not begin due to a walkover, withdrawal, or cancellation, the market will settle to the last fair market price. If a player retires or is disqualified during the match, the market will settle to the official winner of the match. If the match is delayed, postponed, suspended or otherwise rescheduled to a date and time not within two days of the originally scheduled date and time, the market will settle to the last fair market price. Outcome sourced from ATP.",
+    "active": true,
+    "marketType": "moneyline",
+    "closed": false,
+    "createdAt": "2026-10-28T08:00:18Z",
+    "updatedAt": "2026-10-30T04:15:39Z",
+    "archived": false,
+    "orderPriceMinTickSize": 0.01,
+    "gameStartTime": "2026-10-30T04:00:00Z",
+    "manualActivation": false,
+    "sportsMarketType": "tennis_match_winner",
+    "marketSides": [
+     {
+      "id": "3801266",
+      "marketSideType": "MARKET_SIDE_TYPE_INSTRUMENT",
+      "identifier": "aec-atp-yardem-harmay-2026-10-29",
+      "createdAt": "2026-10-28T08:00:18Z",
+      "updatedAt": "2026-10-28T08:00:18Z",
+      "description": "Yaroslav Demin",
+      "price": "0.3200",
+      "marketId": 1900900,
+      "long": true,
+      "teamId": 4771,
+      "team": {
+       "id": 4771,
+       "name": "Yaroslav Demin",
+       "abbreviation": "yardem",
+       "league": "atp",
+       "record": "",
+       "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/RUS.png",
+       "alias": "Yaroslav Demin",
+       "safeName": "Yaroslav Demin",
+       "colorPrimary": "#0039A6",
+       "ordering": "home",
+       "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/RUS.png",
+       "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/RUS.png",
+       "displayAbbreviation": "Demin",
+       "ranking": "590",
+       "providerIds": [
+        {
+         "provider": "PROVIDER_ENETPULSE",
+         "providerId": "1305253"
+        },
+        {
+         "provider": "PROVIDER_SPORTRADAR",
+         "providerId": "sr:competitor:762700"
+        }
+       ],
+       "longIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/RUS.png",
+       "shortIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/RUS.png",
+       "color": {
+        "light": "#0050AC",
+        "dark": "#457CEC"
+       },
+       "imageDisplayType": "IMAGE_DISPLAY_TYPE_FLAG"
+      },
+      "quote": {
+       "value": "0.3300",
+       "currency": "USD"
+      },
+      "tradable": true
+     },
+     {
+      "id": "3801267",
+      "marketSideType": "MARKET_SIDE_TYPE_INSTRUMENT",
+      "identifier": "aec-atp-yardem-harmay-2026-10-29",
+      "createdAt": "2026-10-28T08:00:18Z",
+      "updatedAt": "2026-10-28T08:00:18Z",
+      "description": "Harold Mayot",
+      "price": "0.3300",
+      "marketId": 1900900,
+      "long": false,
+      "teamId": 5582,
+      "team": {
+       "id": 5582,
+       "name": "Harold Mayot",
+       "abbreviation": "harmay",
+       "league": "atp",
+       "record": "",
+       "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/FRA.png",
+       "alias": "Harold Mayot",
+       "safeName": "Harold Mayot",
+       "colorPrimary": "#002395",
+       "ordering": "away",
+       "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/FRA.png",
+       "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/FRA.png",
+       "displayAbbreviation": "Mayot",
+       "ranking": "233",
+       "providerIds": [
+        {
+         "provider": "PROVIDER_ENETPULSE",
+         "providerId": "942496"
+        },
+        {
+         "provider": "PROVIDER_SPORTRADAR",
+         "providerId": "sr:competitor:321667"
+        }
+       ],
+       "longIconDark": "https://static.polymarket.us/images/teams/tennis/atp/5582.png",
+       "shortIconDark": "https://static.polymarket.us/images/teams/tennis/atp/5582.png",
+       "color": {
+        "light": "#0C0086",
+        "dark": "#2B55C6"
+       },
+       "imageDisplayType": "IMAGE_DISPLAY_TYPE_HEADSHOT"
+      },
+      "quote": {
+       "value": "0.68",
+       "currency": "USD"
+      },
+      "tradable": true
+     }
+    ],
+    "outcomes": "[\"Yaroslav Demin\",\"Harold Mayot\"]",
+    "outcomePrices": "[\"0.3200\",\"0.3300\"]",
+    "ep3Status": "OPEN",
+    "status": "MARKET_STATUS_OPEN",
+    "assetPriceTerms": null,
+    "sportsMarketTypeV2": "SPORTS_MARKET_TYPE_MONEYLINE",
+    "hidden": false,
+    "tags": [],
+    "title": "Yaroslav Demin vs Harold Mayot",
+    "feeCoefficient": 0.0695,
+    "bestBidQuote": {
+     "value": "0.3200",
+     "currency": "USD"
+    },
+    "bestAskQuote": {
+     "value": "0.3300",
+     "currency": "USD"
+    },
+    "titleShort": "Demin vs Mayot",
+    "ep3SyncedAt": "2026-10-29T11:58:24Z",
+    "minimumTradeQty": 0.01,
+    "comboEnabled": true,
+    "politics": null
+   }
+  ],
+  "sportradarGameId": "sr:sport_event:75837974",
+  "eventState": {
+   "id": 140626937,
+   "sportradarGameId": "sr:sport_event:75837974",
+   "type": "tennis",
+   "createdAt": "2026-10-30T03:45:01.231484Z",
+   "updatedAt": "2026-10-30T04:41:19.050926Z",
+   "score": "3-3:30-0",
+   "period": "S1",
+   "live": true,
+   "ended": false,
+   "tennisState": {
+    "tournamentName": "ATP Challenger Ningbo, China Men Singles",
+    "round": "Quarterfinal",
+    "servingTeamId": 4771
+   },
+   "marketGroupStats": [],
+   "periodScores": [
+    {
+     "number": 1,
+     "type": "PERIOD_SCORE_TYPE_REGULATION",
+     "label": "S1",
+     "scores": [
+      {
+       "competitorId": "4771",
+       "score": 3
+      },
+      {
+       "competitorId": "5582",
+       "score": 3
+      }
+     ]
+    }
+   ],
+   "eventId": 201072
+  },
+  "participants": [],
+  "hidden": false,
+  "teams": [
+   {
+    "id": 4771,
+    "name": "Yaroslav Demin",
+    "abbreviation": "yardem",
+    "league": "atp",
+    "record": "",
+    "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/RUS.png",
+    "alias": "Yaroslav Demin",
+    "safeName": "Yaroslav Demin",
+    "colorPrimary": "#0039A6",
+    "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/RUS.png",
+    "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/RUS.png",
+    "displayAbbreviation": "Demin",
+    "ranking": "590",
+    "providerIds": [
+     {
+      "provider": "PROVIDER_ENETPULSE",
+      "providerId": "1305253"
+     },
+     {
+      "provider": "PROVIDER_SPORTRADAR",
+      "providerId": "sr:competitor:762700"
+     }
+    ],
+    "longIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/RUS.png",
+    "shortIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/RUS.png",
+    "color": {
+     "light": "#0050AC",
+     "dark": "#457CEC"
+    },
+    "imageDisplayType": "IMAGE_DISPLAY_TYPE_FLAG"
+   },
+   {
+    "id": 5582,
+    "name": "Harold Mayot",
+    "abbreviation": "harmay",
+    "league": "atp",
+    "record": "",
+    "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/FRA.png",
+    "alias": "Harold Mayot",
+    "safeName": "Harold Mayot",
+    "colorPrimary": "#002395",
+    "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/FRA.png",
+    "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/FRA.png",
+    "displayAbbreviation": "Mayot",
+    "ranking": "233",
+    "providerIds": [
+     {
+      "provider": "PROVIDER_ENETPULSE",
+      "providerId": "942496"
+     },
+     {
+      "provider": "PROVIDER_SPORTRADAR",
+      "providerId": "sr:competitor:321667"
+     }
+    ],
+    "longIconDark": "https://static.polymarket.us/images/teams/tennis/atp/5582.png",
+    "shortIconDark": "https://static.polymarket.us/images/teams/tennis/atp/5582.png",
+    "color": {
+     "light": "#0C0086",
+     "dark": "#2B55C6"
+    },
+    "imageDisplayType": "IMAGE_DISPLAY_TYPE_HEADSHOT"
+   }
+  ],
+  "metadata": {
+   "politics": null,
+   "gameState": {
+    "id": 140626937,
+    "sportradarGameId": "sr:sport_event:75837974",
+    "type": "tennis",
+    "createdAt": "2026-10-30T03:45:01.231484Z",
+    "updatedAt": "2026-10-30T04:41:19.050926Z",
+    "score": "3-3:30-0",
+    "period": "S1",
+    "live": true,
+    "ended": false,
+    "tennisState": {
+     "tournamentName": "ATP Challenger Ningbo, China Men Singles",
+     "round": "Quarterfinal",
+     "servingTeamId": 4771
+    },
+    "marketGroupStats": [],
+    "periodScores": [
+     {
+      "number": 1,
+      "type": "PERIOD_SCORE_TYPE_REGULATION",
+      "label": "S1",
+      "scores": [
+       {
+        "competitorId": "4771",
+        "score": 3
+       },
+       {
+        "competitorId": "5582",
+        "score": 3
+       }
+      ]
+     }
+    ],
+    "eventId": 0
+   }
+  },
+  "sortType": "price",
+  "primaryTag": {
+   "id": "23",
+   "label": "ATP",
+   "slug": "atp",
+   "updatedAt": "2026-10-30T04:18:02Z",
+   "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/random-team-images/tennis/APT-NEW.png",
+   "tradable": false,
+   "league": {
+    "id": 12,
+    "name": "ATP",
+    "sportId": 8,
+    "tagId": 23,
+    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/random-team-images/tennis/APT-NEW.png",
+    "ordering": "home",
+    "activeSeriesId": 16,
+    "isOperational": true,
+    "automaticResolution": false,
+    "createdAt": "2026-03-20T19:11:04Z",
+    "slug": "atp"
+   },
+   "subtags": [],
+   "hub": null,
+   "featuredEventIds": []
+  },
+  "streamProvider": "sportradar",
+  "streamRequiresAuth": true,
+  "marketCounts": {
+   "numMarkets": 19,
+   "numSpreadsAndTotalsMarkets": 12
+  },
+  "fixtureId": "",
+  "payoutEstimateMessage": "",
+  "payoutEstimateTime": ""
+ },
+ {
+  "id": "201787",
+  "ticker": "atp-fedcin-dinpri-2026-10-29",
+  "slug": "atp-fedcin-dinpri-2026-10-29",
+  "title": "Federico Cina vs. Dino Prizmic",
+  "description": "Federico Cina vs. Dino Prizmic",
+  "startDate": "2026-10-30T12:40:00Z",
+  "endDate": "2026-10-31T03:59:00Z",
+  "active": true,
+  "closed": false,
+  "archived": false,
+  "category": "sports",
+  "createdAt": "2026-10-28T14:15:19Z",
+  "updatedAt": "2026-10-30T01:47:24Z",
+  "startTime": "2026-10-30T12:40:00Z",
+  "seriesSlug": "atp-2026",
+  "period": "NS",
+  "markets": [
+   {
+    "id": "1909456",
+    "question": "Who will win in the upcoming atp event Federico Cina vs Dino Prizmic scheduled for October 29, 2026 at 10:00 AM UTC?",
+    "slug": "aec-atp-fedcin-dinpri-2026-10-29",
+    "endDate": "2026-11-12T15:00:00Z",
+    "category": "sports",
+    "startDate": "2026-10-28T14:15:19Z",
+    "description": "This market will settle to the winner of the Federico Cina vs Dino Prizmic ATP match scheduled for October 29, 2026 at 6:00AM ET (as of the listing of the event's first instrument). If the match does not begin due to a walkover, withdrawal, or cancellation, the market will settle to the last fair market price. If a player retires or is disqualified during the match, the market will settle to the official winner of the match. If the match is delayed, postponed, suspended or otherwise rescheduled to a date and time not within two days of the originally scheduled date and time, the market will settle to the last fair market price. Outcome sourced from ATP.",
+    "active": true,
+    "marketType": "moneyline",
+    "closed": false,
+    "createdAt": "2026-10-28T14:15:19Z",
+    "updatedAt": "2026-10-30T00:31:16Z",
+    "archived": false,
+    "orderPriceMinTickSize": 0.01,
+    "gameStartTime": "2026-10-30T12:40:00Z",
+    "manualActivation": false,
+    "sportsMarketType": "tennis_match_winner",
+    "marketSides": [
+     {
+      "id": "3818378",
+      "marketSideType": "MARKET_SIDE_TYPE_INSTRUMENT",
+      "identifier": "aec-atp-fedcin-dinpri-2026-10-29",
+      "createdAt": "2026-10-28T14:15:19Z",
+      "updatedAt": "2026-10-28T14:15:19Z",
+      "description": "Federico Cina",
+      "price": "0.3200",
+      "marketId": 1909456,
+      "long": true,
+      "teamId": 3257,
+      "team": {
+       "id": 3257,
+       "name": "Federico Cina",
+       "abbreviation": "fedcin",
+       "league": "atp",
+       "record": "",
+       "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ITA.png",
+       "alias": "Federico Cina",
+       "safeName": "Federico Cina",
+       "colorPrimary": "#00893E",
+       "ordering": "home",
+       "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ITA.png",
+       "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ITA.png",
+       "displayAbbreviation": "Cina",
+       "ranking": "142",
+       "providerIds": [
+        {
+         "provider": "PROVIDER_ENETPULSE",
+         "providerId": "1388382"
+        },
+        {
+         "provider": "PROVIDER_SPORTRADAR",
+         "providerId": "sr:competitor:917921"
+        }
+       ],
+       "longIconDark": "https://static.polymarket.us/images/teams/tennis/atp/3257.png",
+       "shortIconDark": "https://static.polymarket.us/images/teams/tennis/atp/3257.png",
+       "color": {
+        "light": "#00893E",
+        "dark": "#00893E"
+       },
+       "imageDisplayType": "IMAGE_DISPLAY_TYPE_HEADSHOT"
+      },
+      "quote": {
+       "value": "0.3300",
+       "currency": "USD"
+      },
+      "tradable": true
+     },
+     {
+      "id": "3818379",
+      "marketSideType": "MARKET_SIDE_TYPE_INSTRUMENT",
+      "identifier": "aec-atp-fedcin-dinpri-2026-10-29",
+      "createdAt": "2026-10-28T14:15:19Z",
+      "updatedAt": "2026-10-28T14:15:19Z",
+      "description": "Dino Prizmic",
+      "price": "0.3300",
+      "marketId": 1909456,
+      "long": false,
+      "teamId": 4760,
+      "team": {
+       "id": 4760,
+       "name": "Dino Prizmic",
+       "abbreviation": "dinpri",
+       "league": "atp",
+       "record": "",
+       "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/HRV.png",
+       "alias": "Dino Prizmic",
+       "safeName": "Dino Prizmic",
+       "colorPrimary": "#EF0000",
+       "ordering": "away",
+       "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/HRV.png",
+       "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/HRV.png",
+       "displayAbbreviation": "Prizmic",
+       "ranking": "93",
+       "providerIds": [
+        {
+         "provider": "PROVIDER_ENETPULSE",
+         "providerId": "1239843"
+        },
+        {
+         "provider": "PROVIDER_SPORTRADAR",
+         "providerId": "sr:competitor:722429"
+        }
+       ],
+       "longIconDark": "https://static.polymarket.us/images/teams/tennis/atp/4760.png",
+       "shortIconDark": "https://static.polymarket.us/images/teams/tennis/atp/4760.png",
+       "color": {
+        "light": "#EF0000",
+        "dark": "#EF0000"
+       },
+       "imageDisplayType": "IMAGE_DISPLAY_TYPE_HEADSHOT"
+      },
+      "quote": {
+       "value": "0.68",
+       "currency": "USD"
+      },
+      "tradable": true
+     }
+    ],
+    "outcomes": "[\"Federico Cina\",\"Dino Prizmic\"]",
+    "outcomePrices": "[\"0.3200\",\"0.3300\"]",
+    "ep3Status": "OPEN",
+    "status": "MARKET_STATUS_OPEN",
+    "assetPriceTerms": null,
+    "sportsMarketTypeV2": "SPORTS_MARKET_TYPE_MONEYLINE",
+    "hidden": false,
+    "tags": [],
+    "title": "Federico Cina vs Dino Prizmic",
+    "feeCoefficient": 0.0695,
+    "bestBidQuote": {
+     "value": "0.3200",
+     "currency": "USD"
+    },
+    "bestAskQuote": {
+     "value": "0.3300",
+     "currency": "USD"
+    },
+    "titleShort": "Cina vs Prizmic",
+    "ep3SyncedAt": "2026-10-29T15:30:29Z",
+    "minimumTradeQty": 0.01,
+    "comboEnabled": true,
+    "politics": null
+   }
+  ],
+  "sportradarGameId": "sr:sport_event:75837816",
+  "participants": [],
+  "hidden": false,
+  "teams": [
+   {
+    "id": 3257,
+    "name": "Federico Cina",
+    "abbreviation": "fedcin",
+    "league": "atp",
+    "record": "",
+    "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ITA.png",
+    "alias": "Federico Cina",
+    "safeName": "Federico Cina",
+    "colorPrimary": "#00893E",
+    "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ITA.png",
+    "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ITA.png",
+    "displayAbbreviation": "Cina",
+    "ranking": "142",
+    "providerIds": [
+     {
+      "provider": "PROVIDER_ENETPULSE",
+      "providerId": "1388382"
+     },
+     {
+      "provider": "PROVIDER_SPORTRADAR",
+      "providerId": "sr:competitor:917921"
+     }
+    ],
+    "longIconDark": "https://static.polymarket.us/images/teams/tennis/atp/3257.png",
+    "shortIconDark": "https://static.polymarket.us/images/teams/tennis/atp/3257.png",
+    "color": {
+     "light": "#00893E",
+     "dark": "#00893E"
+    },
+    "imageDisplayType": "IMAGE_DISPLAY_TYPE_HEADSHOT"
+   },
+   {
+    "id": 4760,
+    "name": "Dino Prizmic",
+    "abbreviation": "dinpri",
+    "league": "atp",
+    "record": "",
+    "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/HRV.png",
+    "alias": "Dino Prizmic",
+    "safeName": "Dino Prizmic",
+    "colorPrimary": "#EF0000",
+    "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/HRV.png",
+    "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/HRV.png",
+    "displayAbbreviation": "Prizmic",
+    "ranking": "93",
+    "providerIds": [
+     {
+      "provider": "PROVIDER_ENETPULSE",
+      "providerId": "1239843"
+     },
+     {
+      "provider": "PROVIDER_SPORTRADAR",
+      "providerId": "sr:competitor:722429"
+     }
+    ],
+    "longIconDark": "https://static.polymarket.us/images/teams/tennis/atp/4760.png",
+    "shortIconDark": "https://static.polymarket.us/images/teams/tennis/atp/4760.png",
+    "color": {
+     "light": "#EF0000",
+     "dark": "#EF0000"
+    },
+    "imageDisplayType": "IMAGE_DISPLAY_TYPE_HEADSHOT"
+   }
+  ],
+  "sortType": "price",
+  "primaryTag": {
+   "id": "23",
+   "label": "ATP",
+   "slug": "atp",
+   "updatedAt": "2026-10-30T04:18:02Z",
+   "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/random-team-images/tennis/APT-NEW.png",
+   "tradable": false,
+   "league": {
+    "id": 12,
+    "name": "ATP",
+    "sportId": 8,
+    "tagId": 23,
+    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/random-team-images/tennis/APT-NEW.png",
+    "ordering": "home",
+    "activeSeriesId": 16,
+    "isOperational": true,
+    "automaticResolution": false,
+    "createdAt": "2026-03-20T19:11:04Z",
+    "slug": "atp"
+   },
+   "subtags": [],
+   "hub": null,
+   "featuredEventIds": []
+  },
+  "streamProvider": "sportradar",
+  "streamRequiresAuth": true,
+  "marketCounts": {
+   "numMarkets": 19,
+   "numSpreadsAndTotalsMarkets": 12
+  },
+  "fixtureId": "",
+  "payoutEstimateMessage": "",
+  "payoutEstimateTime": ""
+ },
+ {
+  "id": "203634",
+  "ticker": "atp-emicam-joasil-2026-10-29",
+  "slug": "atp-emicam-joasil-2026-10-29",
+  "title": "Emilio Camacho vs. Joao Lucas Reis Da Silva",
+  "description": "Emilio Camacho vs. Joao Lucas Reis Da Silva",
+  "startDate": "2026-10-29T21:00:00Z",
+  "endDate": "2026-10-30T03:59:00Z",
+  "active": true,
+  "closed": false,
+  "archived": false,
+  "category": "sports",
+  "createdAt": "2026-10-28T19:00:28Z",
+  "updatedAt": "2026-10-30T04:16:04Z",
+  "startTime": "2026-10-29T21:00:00Z",
+  "seriesSlug": "atp-2026",
+  "score": "6-4, 4-3",
+  "period": "SUS",
+  "live": true,
+  "ended": false,
+  "markets": [
+   {
+    "id": "1915152",
+    "question": "Who will win in the upcoming atp event Emilio Camacho vs Joao Lucas Reis Da Silva scheduled for October 29, 2026 at 5:00 PM UTC?",
+    "slug": "aec-atp-emicam-joasil-2026-10-29",
+    "endDate": "2026-11-12T22:00:00Z",
+    "category": "sports",
+    "startDate": "2026-10-28T19:00:28Z",
+    "description": "This market will settle to the winner of the Emilio Camacho vs Joao Lucas Reis Da Silva ATP match scheduled for October 29, 2026 at 1:00PM ET (as of the listing of the event's first instrument). If the match does not begin due to a walkover, withdrawal, or cancellation, the market will settle to the last fair market price. If a player retires or is disqualified during the match, the market will settle to the official winner of the match. If the match is delayed, postponed, suspended or otherwise rescheduled to a date and time not within two days of the originally scheduled date and time, the market will settle to the last fair market price. Outcome sourced from ATP.",
+    "active": true,
+    "marketType": "moneyline",
+    "closed": false,
+    "createdAt": "2026-10-28T19:00:28Z",
+    "updatedAt": "2026-10-30T04:15:39Z",
+    "archived": false,
+    "orderPriceMinTickSize": 0.01,
+    "gameStartTime": "2026-10-29T21:00:00Z",
+    "manualActivation": false,
+    "sportsMarketType": "tennis_match_winner",
+    "marketSides": [
+     {
+      "id": "3829766",
+      "marketSideType": "MARKET_SIDE_TYPE_INSTRUMENT",
+      "identifier": "aec-atp-emicam-joasil-2026-10-29",
+      "createdAt": "2026-10-28T19:00:28Z",
+      "updatedAt": "2026-10-28T19:00:28Z",
+      "description": "Emilio Camacho",
+      "price": "0.5700",
+      "marketId": 1915152,
+      "long": true,
+      "teamId": 7973,
+      "team": {
+       "id": 7973,
+       "name": "Emilio Camacho",
+       "abbreviation": "emicam",
+       "league": "atp",
+       "record": "",
+       "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ECU.png",
+       "alias": "Emilio Camacho",
+       "safeName": "Emilio Camacho",
+       "colorPrimary": "#EDBF00",
+       "ordering": "home",
+       "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ECU.png",
+       "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ECU.png",
+       "displayAbbreviation": "Camacho",
+       "providerIds": [
+        {
+         "provider": "PROVIDER_ENETPULSE",
+         "providerId": "1847391"
+        },
+        {
+         "provider": "PROVIDER_SPORTRADAR",
+         "providerId": "sr:competitor:1202375"
+        }
+       ],
+       "longIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ECU.png",
+       "shortIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ECU.png",
+       "color": {
+        "light": "#E3B700",
+        "dark": "#EDBF00"
+       },
+       "imageDisplayType": "IMAGE_DISPLAY_TYPE_FLAG"
+      },
+      "quote": {
+       "value": "0.6000",
+       "currency": "USD"
+      },
+      "tradable": true
+     },
+     {
+      "id": "3829767",
+      "marketSideType": "MARKET_SIDE_TYPE_INSTRUMENT",
+      "identifier": "aec-atp-emicam-joasil-2026-10-29",
+      "createdAt": "2026-10-28T19:00:28Z",
+      "updatedAt": "2026-10-28T19:00:28Z",
+      "description": "Joao Lucas Da Silva",
+      "price": "0.6000",
+      "marketId": 1915152,
+      "long": false,
+      "teamId": 3092,
+      "team": {
+       "id": 3092,
+       "name": "Joao Lucas Da Silva",
+       "abbreviation": "joasil",
+       "league": "atp",
+       "record": "",
+       "logo": "https://static.polymarket.us/images/teams/tennis/atp/3092.png",
+       "alias": "Joao Lucas Da Silva",
+       "safeName": "Joao Lucas Da Silva",
+       "colorPrimary": "#008A28",
+       "ordering": "away",
+       "longIcon": "https://static.polymarket.us/images/teams/tennis/atp/3092.png",
+       "shortIcon": "https://static.polymarket.us/images/teams/tennis/atp/3092.png",
+       "displayAbbreviation": "Silva",
+       "ranking": "186",
+       "providerIds": [
+        {
+         "provider": "PROVIDER_ENETPULSE",
+         "providerId": "684564"
+        },
+        {
+         "provider": "PROVIDER_SPORTRADAR",
+         "providerId": "sr:competitor:240264"
+        }
+       ],
+       "longIconDark": "https://static.polymarket.us/images/teams/tennis/atp/3092.png",
+       "shortIconDark": "https://static.polymarket.us/images/teams/tennis/atp/3092.png",
+       "color": {
+        "light": "#008A28",
+        "dark": "#008A28"
+       },
+       "imageDisplayType": "IMAGE_DISPLAY_TYPE_HEADSHOT"
+      },
+      "quote": {
+       "value": "0.43",
+       "currency": "USD"
+      },
+      "tradable": true
+     }
+    ],
+    "outcomes": "[\"Emilio Camacho\",\"Joao Lucas Da Silva\"]",
+    "outcomePrices": "[\"0.5700\",\"0.6000\"]",
+    "ep3Status": "OPEN",
+    "status": "MARKET_STATUS_OPEN",
+    "assetPriceTerms": null,
+    "sportsMarketTypeV2": "SPORTS_MARKET_TYPE_MONEYLINE",
+    "hidden": false,
+    "tags": [],
+    "title": "Emilio Camacho vs Joao Lucas Da Silva",
+    "feeCoefficient": 0.0695,
+    "bestBidQuote": {
+     "value": "0.5700",
+     "currency": "USD"
+    },
+    "bestAskQuote": {
+     "value": "0.6000",
+     "currency": "USD"
+    },
+    "titleShort": "Camacho vs Silva",
+    "ep3SyncedAt": "2026-10-29T20:45:16Z",
+    "minimumTradeQty": 0.01,
+    "comboEnabled": true,
+    "politics": null
+   }
+  ],
+  "sportradarGameId": "sr:sport_event:75837880",
+  "eventState": {
+   "id": 140591136,
+   "sportradarGameId": "sr:sport_event:75837880",
+   "type": "tennis",
+   "createdAt": "2026-10-29T20:48:57.375336Z",
+   "updatedAt": "2026-10-29T22:42:47.067115Z",
+   "score": "6-4, 4-3",
+   "period": "SUS",
+   "live": true,
+   "ended": false,
+   "tennisState": {
+    "tournamentName": "ATP Challenger Guayaquil, Ecuador Men Singles",
+    "round": "Round of 16",
+    "servingTeamId": 3092
+   },
+   "marketGroupStats": [],
+   "periodScores": [
+    {
+     "number": 1,
+     "type": "PERIOD_SCORE_TYPE_REGULATION",
+     "label": "S1",
+     "scores": [
+      {
+       "competitorId": "7973",
+       "score": 6
+      },
+      {
+       "competitorId": "3092",
+       "score": 4
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "type": "PERIOD_SCORE_TYPE_REGULATION",
+     "label": "S2",
+     "scores": [
+      {
+       "competitorId": "7973",
+       "score": 4
+      },
+      {
+       "competitorId": "3092",
+       "score": 3
+      }
+     ]
+    }
+   ],
+   "eventId": 203634
+  },
+  "participants": [],
+  "hidden": false,
+  "teams": [
+   {
+    "id": 7973,
+    "name": "Emilio Camacho",
+    "abbreviation": "emicam",
+    "league": "atp",
+    "record": "",
+    "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ECU.png",
+    "alias": "Emilio Camacho",
+    "safeName": "Emilio Camacho",
+    "colorPrimary": "#EDBF00",
+    "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ECU.png",
+    "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ECU.png",
+    "displayAbbreviation": "Camacho",
+    "providerIds": [
+     {
+      "provider": "PROVIDER_ENETPULSE",
+      "providerId": "1847391"
+     },
+     {
+      "provider": "PROVIDER_SPORTRADAR",
+      "providerId": "sr:competitor:1202375"
+     }
+    ],
+    "longIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ECU.png",
+    "shortIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ECU.png",
+    "color": {
+     "light": "#E3B700",
+     "dark": "#EDBF00"
+    },
+    "imageDisplayType": "IMAGE_DISPLAY_TYPE_FLAG"
+   },
+   {
+    "id": 3092,
+    "name": "Joao Lucas Da Silva",
+    "abbreviation": "joasil",
+    "league": "atp",
+    "record": "",
+    "logo": "https://static.polymarket.us/images/teams/tennis/atp/3092.png",
+    "alias": "Joao Lucas Da Silva",
+    "safeName": "Joao Lucas Da Silva",
+    "colorPrimary": "#008A28",
+    "longIcon": "https://static.polymarket.us/images/teams/tennis/atp/3092.png",
+    "shortIcon": "https://static.polymarket.us/images/teams/tennis/atp/3092.png",
+    "displayAbbreviation": "Silva",
+    "ranking": "186",
+    "providerIds": [
+     {
+      "provider": "PROVIDER_ENETPULSE",
+      "providerId": "684564"
+     },
+     {
+      "provider": "PROVIDER_SPORTRADAR",
+      "providerId": "sr:competitor:240264"
+     }
+    ],
+    "longIconDark": "https://static.polymarket.us/images/teams/tennis/atp/3092.png",
+    "shortIconDark": "https://static.polymarket.us/images/teams/tennis/atp/3092.png",
+    "color": {
+     "light": "#008A28",
+     "dark": "#008A28"
+    },
+    "imageDisplayType": "IMAGE_DISPLAY_TYPE_HEADSHOT"
+   }
+  ],
+  "metadata": {
+   "politics": null,
+   "gameState": {
+    "id": 140591136,
+    "sportradarGameId": "sr:sport_event:75837880",
+    "type": "tennis",
+    "createdAt": "2026-10-29T20:48:57.375336Z",
+    "updatedAt": "2026-10-29T22:42:47.067115Z",
+    "score": "6-4, 4-3",
+    "period": "SUS",
+    "live": true,
+    "ended": false,
+    "tennisState": {
+     "tournamentName": "ATP Challenger Guayaquil, Ecuador Men Singles",
+     "round": "Round of 16",
+     "servingTeamId": 3092
+    },
+    "marketGroupStats": [],
+    "periodScores": [
+     {
+      "number": 1,
+      "type": "PERIOD_SCORE_TYPE_REGULATION",
+      "label": "S1",
+      "scores": [
+       {
+        "competitorId": "7973",
+        "score": 6
+       },
+       {
+        "competitorId": "3092",
+        "score": 4
+       }
+      ]
+     },
+     {
+      "number": 2,
+      "type": "PERIOD_SCORE_TYPE_REGULATION",
+      "label": "S2",
+      "scores": [
+       {
+        "competitorId": "7973",
+        "score": 4
+       },
+       {
+        "competitorId": "3092",
+        "score": 3
+       }
+      ]
+     }
+    ],
+    "eventId": 0
+   }
+  },
+  "sortType": "price",
+  "primaryTag": {
+   "id": "23",
+   "label": "ATP",
+   "slug": "atp",
+   "updatedAt": "2026-10-30T04:18:02Z",
+   "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/random-team-images/tennis/APT-NEW.png",
+   "tradable": false,
+   "league": {
+    "id": 12,
+    "name": "ATP",
+    "sportId": 8,
+    "tagId": 23,
+    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/random-team-images/tennis/APT-NEW.png",
+    "ordering": "home",
+    "activeSeriesId": 16,
+    "isOperational": true,
+    "automaticResolution": false,
+    "createdAt": "2026-03-20T19:11:04Z",
+    "slug": "atp"
+   },
+   "subtags": [],
+   "hub": null,
+   "featuredEventIds": []
+  },
+  "streamProvider": "sportradar",
+  "streamRequiresAuth": true,
+  "marketCounts": {
+   "numMarkets": 19,
+   "numSpreadsAndTotalsMarkets": 12
+  },
+  "fixtureId": "",
+  "payoutEstimateMessage": "",
+  "payoutEstimateTime": ""
+ },
+ {
+  "id": "204702",
+  "ticker": "atp-meerot-aidmay-2026-10-30",
+  "slug": "atp-meerot-aidmay-2026-10-30",
+  "title": "Mees Rottgering vs. Aidan Mayo",
+  "description": "Mees Rottgering vs. Aidan Mayo",
+  "startDate": "2026-10-30T17:00:00Z",
+  "endDate": "2026-10-31T03:59:00Z",
+  "active": true,
+  "closed": false,
+  "archived": false,
+  "category": "sports",
+  "createdAt": "2026-10-29T00:15:20Z",
+  "updatedAt": "2026-10-30T03:06:05Z",
+  "startTime": "2026-10-30T17:00:00Z",
+  "seriesSlug": "atp-2026",
+  "period": "NS",
+  "markets": [
+   {
+    "id": "1924755",
+    "question": "Who will win in the upcoming atp event Mees Rottgering vs Aidan Mayo scheduled for October 30, 2026 at 3:00 PM UTC?",
+    "slug": "aec-atp-meerot-aidmay-2026-10-30",
+    "endDate": "2026-11-13T20:00:00Z",
+    "category": "sports",
+    "startDate": "2026-10-29T00:15:20Z",
+    "description": "This market will settle to the winner of the Mees Rottgering vs Aidan Mayo ATP match scheduled for October 30, 2026 at 11:00AM ET (as of the listing of the event's first instrument). If the match does not begin due to a walkover, withdrawal, or cancellation, the market will settle to the last fair market price. If a player retires or is disqualified during the match, the market will settle to the official winner of the match. If the match is delayed, postponed, suspended or otherwise rescheduled to a date and time not within two days of the originally scheduled date and time, the market will settle to the last fair market price. Outcome sourced from ATP.",
+    "active": true,
+    "marketType": "moneyline",
+    "closed": false,
+    "createdAt": "2026-10-29T00:15:20Z",
+    "updatedAt": "2026-10-29T23:00:21Z",
+    "archived": false,
+    "orderPriceMinTickSize": 0.01,
+    "gameStartTime": "2026-10-30T17:00:00Z",
+    "manualActivation": false,
+    "sportsMarketType": "tennis_match_winner",
+    "marketSides": [
+     {
+      "id": "3848972",
+      "marketSideType": "MARKET_SIDE_TYPE_INSTRUMENT",
+      "identifier": "aec-atp-meerot-aidmay-2026-10-30",
+      "createdAt": "2026-10-29T00:15:20Z",
+      "updatedAt": "2026-10-29T00:15:20Z",
+      "description": "Mees Rottgering",
+      "price": "0.5600",
+      "marketId": 1924755,
+      "long": true,
+      "teamId": 8792,
+      "team": {
+       "id": 8792,
+       "name": "Mees Rottgering",
+       "abbreviation": "meerot",
+       "league": "atp",
+       "record": "",
+       "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/NLD.png",
+       "alias": "Mees Rottgering",
+       "safeName": "Mees Rottgering",
+       "colorPrimary": "#AE1C28",
+       "ordering": "home",
+       "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/NLD.png",
+       "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/NLD.png",
+       "displayAbbreviation": "Rottgering",
+       "ranking": "316",
+       "providerIds": [
+        {
+         "provider": "PROVIDER_ENETPULSE",
+         "providerId": "1500395"
+        },
+        {
+         "provider": "PROVIDER_SPORTRADAR",
+         "providerId": "sr:competitor:930125"
+        }
+       ],
+       "longIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/NLD.png",
+       "shortIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/NLD.png",
+       "color": {
+        "light": "#900018",
+        "dark": "#AA3108"
+       },
+       "imageDisplayType": "IMAGE_DISPLAY_TYPE_FLAG"
+      },
+      "quote": {
+       "value": "0.5700",
+       "currency": "USD"
+      },
+      "tradable": true
+     },
+     {
+      "id": "3848973",
+      "marketSideType": "MARKET_SIDE_TYPE_INSTRUMENT",
+      "identifier": "aec-atp-meerot-aidmay-2026-10-30",
+      "createdAt": "2026-10-29T00:15:20Z",
+      "updatedAt": "2026-10-29T00:15:20Z",
+      "description": "Aidan Mayo",
+      "price": "0.5700",
+      "marketId": 1924755,
+      "long": false,
+      "teamId": 4834,
+      "team": {
+       "id": 4834,
+       "name": "Aidan Mayo",
+       "abbreviation": "aidmay",
+       "league": "atp",
+       "record": "",
+       "logo": "https://static.polymarket.us/images/teams/tennis/atp/4834.png",
+       "alias": "Aidan Mayo",
+       "safeName": "Aidan Mayo",
+       "colorPrimary": "#B22234",
+       "ordering": "away",
+       "longIcon": "https://static.polymarket.us/images/teams/tennis/atp/4834.png",
+       "shortIcon": "https://static.polymarket.us/images/teams/tennis/atp/4834.png",
+       "displayAbbreviation": "Mayo",
+       "ranking": "321",
+       "providerIds": [
+        {
+         "provider": "PROVIDER_ENETPULSE",
+         "providerId": "1087839"
+        },
+        {
+         "provider": "PROVIDER_SPORTRADAR",
+         "providerId": "sr:competitor:540271"
+        }
+       ],
+       "longIconDark": "https://static.polymarket.us/images/teams/tennis/atp/4834.png",
+       "shortIconDark": "https://static.polymarket.us/images/teams/tennis/atp/4834.png",
+       "color": {
+        "light": "#D42F42",
+        "dark": "#BD1D54"
+       },
+       "imageDisplayType": "IMAGE_DISPLAY_TYPE_HEADSHOT"
+      },
+      "quote": {
+       "value": "0.44",
+       "currency": "USD"
+      },
+      "tradable": true
+     }
+    ],
+    "outcomes": "[\"Mees Rottgering\",\"Aidan Mayo\"]",
+    "outcomePrices": "[\"0.5600\",\"0.5700\"]",
+    "ep3Status": "OPEN",
+    "status": "MARKET_STATUS_OPEN",
+    "assetPriceTerms": null,
+    "sportsMarketTypeV2": "SPORTS_MARKET_TYPE_MONEYLINE",
+    "hidden": false,
+    "tags": [],
+    "title": "Mees Rottgering vs Aidan Mayo",
+    "feeCoefficient": 0.0695,
+    "bestBidQuote": {
+     "value": "0.5600",
+     "currency": "USD"
+    },
+    "bestAskQuote": {
+     "value": "0.5700",
+     "currency": "USD"
+    },
+    "titleShort": "Rottgering vs Mayo",
+    "ep3SyncedAt": "2026-10-29T23:00:21Z",
+    "minimumTradeQty": 0.01,
+    "comboEnabled": true,
+    "politics": null
+   }
+  ],
+  "sportradarGameId": "sr:sport_event:75837934",
+  "participants": [],
+  "hidden": false,
+  "teams": [
+   {
+    "id": 8792,
+    "name": "Mees Rottgering",
+    "abbreviation": "meerot",
+    "league": "atp",
+    "record": "",
+    "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/NLD.png",
+    "alias": "Mees Rottgering",
+    "safeName": "Mees Rottgering",
+    "colorPrimary": "#AE1C28",
+    "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/NLD.png",
+    "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/NLD.png",
+    "displayAbbreviation": "Rottgering",
+    "ranking": "316",
+    "providerIds": [
+     {
+      "provider": "PROVIDER_ENETPULSE",
+      "providerId": "1500395"
+     },
+     {
+      "provider": "PROVIDER_SPORTRADAR",
+      "providerId": "sr:competitor:930125"
+     }
+    ],
+    "longIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/NLD.png",
+    "shortIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/NLD.png",
+    "color": {
+     "light": "#900018",
+     "dark": "#AA3108"
+    },
+    "imageDisplayType": "IMAGE_DISPLAY_TYPE_FLAG"
+   },
+   {
+    "id": 4834,
+    "name": "Aidan Mayo",
+    "abbreviation": "aidmay",
+    "league": "atp",
+    "record": "",
+    "logo": "https://static.polymarket.us/images/teams/tennis/atp/4834.png",
+    "alias": "Aidan Mayo",
+    "safeName": "Aidan Mayo",
+    "colorPrimary": "#B22234",
+    "longIcon": "https://static.polymarket.us/images/teams/tennis/atp/4834.png",
+    "shortIcon": "https://static.polymarket.us/images/teams/tennis/atp/4834.png",
+    "displayAbbreviation": "Mayo",
+    "ranking": "321",
+    "providerIds": [
+     {
+      "provider": "PROVIDER_ENETPULSE",
+      "providerId": "1087839"
+     },
+     {
+      "provider": "PROVIDER_SPORTRADAR",
+      "providerId": "sr:competitor:540271"
+     }
+    ],
+    "longIconDark": "https://static.polymarket.us/images/teams/tennis/atp/4834.png",
+    "shortIconDark": "https://static.polymarket.us/images/teams/tennis/atp/4834.png",
+    "color": {
+     "light": "#D42F42",
+     "dark": "#BD1D54"
+    },
+    "imageDisplayType": "IMAGE_DISPLAY_TYPE_HEADSHOT"
+   }
+  ],
+  "sortType": "price",
+  "primaryTag": {
+   "id": "23",
+   "label": "ATP",
+   "slug": "atp",
+   "updatedAt": "2026-10-30T04:18:02Z",
+   "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/random-team-images/tennis/APT-NEW.png",
+   "tradable": false,
+   "league": {
+    "id": 12,
+    "name": "ATP",
+    "sportId": 8,
+    "tagId": 23,
+    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/random-team-images/tennis/APT-NEW.png",
+    "ordering": "home",
+    "activeSeriesId": 16,
+    "isOperational": true,
+    "automaticResolution": false,
+    "createdAt": "2026-03-20T19:11:04Z",
+    "slug": "atp"
+   },
+   "subtags": [],
+   "hub": null,
+   "featuredEventIds": []
+  },
+  "streamProvider": "sportradar",
+  "streamRequiresAuth": true,
+  "marketCounts": {
+   "numMarkets": 19,
+   "numSpreadsAndTotalsMarkets": 12
+  },
+  "fixtureId": "",
+  "payoutEstimateMessage": "",
+  "payoutEstimateTime": ""
+ },
+ {
+  "id": "205094",
+  "ticker": "atp-dyldie-jjwol-2026-10-30",
+  "slug": "atp-dyldie-jjwol-2026-10-30",
+  "title": "Dylan Dietrich vs. Jeffrey John Wolf",
+  "description": "Dylan Dietrich vs. Jeffrey John Wolf",
+  "startDate": "2026-10-30T18:10:00Z",
+  "endDate": "2026-10-31T03:59:00Z",
+  "active": true,
+  "closed": false,
+  "archived": false,
+  "category": "sports",
+  "createdAt": "2026-10-29T01:45:19Z",
+  "updatedAt": "2026-10-30T04:00:57Z",
+  "startTime": "2026-10-30T18:10:00Z",
+  "seriesSlug": "atp-2026",
+  "period": "NS",
+  "markets": [
+   {
+    "id": "1927769",
+    "question": "Who will win in the upcoming atp event Dylan Dietrich vs Jeffrey John Wolf scheduled for October 30, 2026 at 4:00 PM UTC?",
+    "slug": "aec-atp-dyldie-jjwol-2026-10-30",
+    "endDate": "2026-11-13T21:00:00Z",
+    "category": "sports",
+    "startDate": "2026-10-29T01:45:19Z",
+    "description": "This market will settle to the winner of the Dylan Dietrich vs Jeffrey John Wolf ATP match scheduled for October 30, 2026 at 12:00PM ET (as of the listing of the event's first instrument). If the match does not begin due to a walkover, withdrawal, or cancellation, the market will settle to the last fair market price. If a player retires or is disqualified during the match, the market will settle to the official winner of the match. If the match is delayed, postponed, suspended or otherwise rescheduled to a date and time not within two days of the originally scheduled date and time, the market will settle to the last fair market price. Outcome sourced from ATP.",
+    "active": true,
+    "marketType": "moneyline",
+    "closed": false,
+    "createdAt": "2026-10-29T01:45:19Z",
+    "updatedAt": "2026-10-29T23:00:22Z",
+    "archived": false,
+    "orderPriceMinTickSize": 0.01,
+    "gameStartTime": "2026-10-30T18:10:00Z",
+    "manualActivation": false,
+    "sportsMarketType": "tennis_match_winner",
+    "marketSides": [
+     {
+      "id": "3855000",
+      "marketSideType": "MARKET_SIDE_TYPE_INSTRUMENT",
+      "identifier": "aec-atp-dyldie-jjwol-2026-10-30",
+      "createdAt": "2026-10-29T01:45:19Z",
+      "updatedAt": "2026-10-29T01:45:19Z",
+      "description": "Dylan Dietrich",
+      "price": "0.6300",
+      "marketId": 1927769,
+      "long": true,
+      "teamId": 15386,
+      "team": {
+       "id": 15386,
+       "name": "Dylan Dietrich",
+       "abbreviation": "dyldie",
+       "league": "atp",
+       "record": "",
+       "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/CHE.png",
+       "alias": "Dylan Dietrich",
+       "safeName": "Dylan Dietrich",
+       "colorPrimary": "#EF0000",
+       "ordering": "home",
+       "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/CHE.png",
+       "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/CHE.png",
+       "displayAbbreviation": "Dietrich",
+       "ranking": "254",
+       "providerIds": [
+        {
+         "provider": "PROVIDER_ENETPULSE",
+         "providerId": "1330549"
+        },
+        {
+         "provider": "PROVIDER_SPORTRADAR",
+         "providerId": "sr:competitor:780790"
+        }
+       ],
+       "longIconDark": "https://static.polymarket.us/images/teams/tennis/atp/15386.png",
+       "shortIconDark": "https://static.polymarket.us/images/teams/tennis/atp/15386.png",
+       "color": {
+        "light": "#F81D13",
+        "dark": "#EF0000"
+       },
+       "imageDisplayType": "IMAGE_DISPLAY_TYPE_HEADSHOT"
+      },
+      "quote": {
+       "value": "0.6400",
+       "currency": "USD"
+      },
+      "tradable": true
+     },
+     {
+      "id": "3855001",
+      "marketSideType": "MARKET_SIDE_TYPE_INSTRUMENT",
+      "identifier": "aec-atp-dyldie-jjwol-2026-10-30",
+      "createdAt": "2026-10-29T01:45:19Z",
+      "updatedAt": "2026-10-29T01:45:19Z",
+      "description": "J.J. Wolf",
+      "price": "0.6400",
+      "marketId": 1927769,
+      "long": false,
+      "teamId": 4581,
+      "team": {
+       "id": 4581,
+       "name": "J.J. Wolf",
+       "abbreviation": "jjwol",
+       "league": "atp",
+       "record": "",
+       "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/USA.png",
+       "alias": "J.J. Wolf",
+       "safeName": "J.J. Wolf",
+       "colorPrimary": "#B22234",
+       "ordering": "away",
+       "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/USA.png",
+       "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/USA.png",
+       "displayAbbreviation": "Wolf",
+       "ranking": "210",
+       "providerIds": [
+        {
+         "provider": "PROVIDER_ENETPULSE",
+         "providerId": "754180"
+        },
+        {
+         "provider": "PROVIDER_SPORTRADAR",
+         "providerId": "sr:competitor:234048"
+        }
+       ],
+       "longIconDark": "https://static.polymarket.us/images/teams/tennis/atp/4581.png",
+       "shortIconDark": "https://static.polymarket.us/images/teams/tennis/atp/4581.png",
+       "color": {
+        "light": "#A9152D",
+        "dark": "#B22234"
+       },
+       "imageDisplayType": "IMAGE_DISPLAY_TYPE_HEADSHOT"
+      },
+      "quote": {
+       "value": "0.37",
+       "currency": "USD"
+      },
+      "tradable": true
+     }
+    ],
+    "outcomes": "[\"Dylan Dietrich\",\"J.J. Wolf\"]",
+    "outcomePrices": "[\"0.6300\",\"0.6400\"]",
+    "ep3Status": "OPEN",
+    "status": "MARKET_STATUS_OPEN",
+    "assetPriceTerms": null,
+    "sportsMarketTypeV2": "SPORTS_MARKET_TYPE_MONEYLINE",
+    "hidden": false,
+    "tags": [],
+    "title": "Dylan Dietrich vs J.J. Wolf",
+    "feeCoefficient": 0.0695,
+    "bestBidQuote": {
+     "value": "0.6300",
+     "currency": "USD"
+    },
+    "bestAskQuote": {
+     "value": "0.6400",
+     "currency": "USD"
+    },
+    "titleShort": "Dietrich vs Wolf",
+    "ep3SyncedAt": "2026-10-29T23:00:22Z",
+    "minimumTradeQty": 0.01,
+    "comboEnabled": true,
+    "politics": null
+   }
+  ],
+  "sportradarGameId": "sr:sport_event:75837932",
+  "participants": [],
+  "hidden": false,
+  "teams": [
+   {
+    "id": 15386,
+    "name": "Dylan Dietrich",
+    "abbreviation": "dyldie",
+    "league": "atp",
+    "record": "",
+    "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/CHE.png",
+    "alias": "Dylan Dietrich",
+    "safeName": "Dylan Dietrich",
+    "colorPrimary": "#EF0000",
+    "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/CHE.png",
+    "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/CHE.png",
+    "displayAbbreviation": "Dietrich",
+    "ranking": "254",
+    "providerIds": [
+     {
+      "provider": "PROVIDER_ENETPULSE",
+      "providerId": "1330549"
+     },
+     {
+      "provider": "PROVIDER_SPORTRADAR",
+      "providerId": "sr:competitor:780790"
+     }
+    ],
+    "longIconDark": "https://static.polymarket.us/images/teams/tennis/atp/15386.png",
+    "shortIconDark": "https://static.polymarket.us/images/teams/tennis/atp/15386.png",
+    "color": {
+     "light": "#F81D13",
+     "dark": "#EF0000"
+    },
+    "imageDisplayType": "IMAGE_DISPLAY_TYPE_HEADSHOT"
+   },
+   {
+    "id": 4581,
+    "name": "J.J. Wolf",
+    "abbreviation": "jjwol",
+    "league": "atp",
+    "record": "",
+    "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/USA.png",
+    "alias": "J.J. Wolf",
+    "safeName": "J.J. Wolf",
+    "colorPrimary": "#B22234",
+    "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/USA.png",
+    "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/USA.png",
+    "displayAbbreviation": "Wolf",
+    "ranking": "210",
+    "providerIds": [
+     {
+      "provider": "PROVIDER_ENETPULSE",
+      "providerId": "754180"
+     },
+     {
+      "provider": "PROVIDER_SPORTRADAR",
+      "providerId": "sr:competitor:234048"
+     }
+    ],
+    "longIconDark": "https://static.polymarket.us/images/teams/tennis/atp/4581.png",
+    "shortIconDark": "https://static.polymarket.us/images/teams/tennis/atp/4581.png",
+    "color": {
+     "light": "#A9152D",
+     "dark": "#B22234"
+    },
+    "imageDisplayType": "IMAGE_DISPLAY_TYPE_HEADSHOT"
+   }
+  ],
+  "sortType": "price",
+  "primaryTag": {
+   "id": "23",
+   "label": "ATP",
+   "slug": "atp",
+   "updatedAt": "2026-10-30T04:18:02Z",
+   "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/random-team-images/tennis/APT-NEW.png",
+   "tradable": false,
+   "league": {
+    "id": 12,
+    "name": "ATP",
+    "sportId": 8,
+    "tagId": 23,
+    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/random-team-images/tennis/APT-NEW.png",
+    "ordering": "home",
+    "activeSeriesId": 16,
+    "isOperational": true,
+    "automaticResolution": false,
+    "createdAt": "2026-03-20T19:11:04Z",
+    "slug": "atp"
+   },
+   "subtags": [],
+   "hub": null,
+   "featuredEventIds": []
+  },
+  "streamProvider": "sportradar",
+  "streamRequiresAuth": true,
+  "marketCounts": {
+   "numMarkets": 19,
+   "numSpreadsAndTotalsMarkets": 12
+  },
+  "fixtureId": "",
+  "payoutEstimateMessage": "",
+  "payoutEstimateTime": ""
+ },
+ {
+  "id": "205839",
+  "ticker": "atp-teratm-seohon-2026-10-30",
+  "slug": "atp-teratm-seohon-2026-10-30",
+  "title": "Terence Atmane vs. Seongchan Hong",
+  "description": "Terence Atmane vs. Seongchan Hong",
+  "startDate": "2026-10-30T05:00:00Z",
+  "endDate": "2026-10-31T03:59:00Z",
+  "active": true,
+  "closed": false,
+  "archived": false,
+  "category": "sports",
+  "createdAt": "2026-10-29T07:45:18Z",
+  "updatedAt": "2026-10-30T03:59:09Z",
+  "startTime": "2026-10-30T05:00:00Z",
+  "seriesSlug": "atp-2026",
+  "period": "NS",
+  "markets": [
+   {
+    "id": "1934897",
+    "question": "Who will win in the upcoming atp event Terence Atmane vs Seongchan Hong scheduled for October 30, 2026 at 4:20 AM UTC?",
+    "slug": "aec-atp-teratm-seohon-2026-10-30",
+    "endDate": "2026-11-13T09:20:00Z",
+    "category": "sports",
+    "startDate": "2026-10-29T07:45:18Z",
+    "description": "This market will settle to the winner of the Terence Atmane vs Seongchan Hong ATP match scheduled for October 30, 2026 at 12:20AM ET (as of the listing of the event's first instrument). If the match does not begin due to a walkover, withdrawal, or cancellation, the market will settle to the last fair market price. If a player retires or is disqualified during the match, the market will settle to the official winner of the match. If the match is delayed, postponed, suspended or otherwise rescheduled to a date and time not within two days of the originally scheduled date and time, the market will settle to the last fair market price. Outcome sourced from ATP.",
+    "active": true,
+    "marketType": "moneyline",
+    "closed": false,
+    "createdAt": "2026-10-29T07:45:18Z",
+    "updatedAt": "2026-10-30T03:59:09Z",
+    "archived": false,
+    "orderPriceMinTickSize": 0.01,
+    "gameStartTime": "2026-10-30T05:00:00Z",
+    "manualActivation": false,
+    "sportsMarketType": "tennis_match_winner",
+    "marketSides": [
+     {
+      "id": "3869256",
+      "marketSideType": "MARKET_SIDE_TYPE_INSTRUMENT",
+      "identifier": "aec-atp-teratm-seohon-2026-10-30",
+      "createdAt": "2026-10-29T07:45:18Z",
+      "updatedAt": "2026-10-29T07:45:18Z",
+      "description": "Terence Atmane",
+      "price": "0.7000",
+      "marketId": 1934897,
+      "long": true,
+      "teamId": 3130,
+      "team": {
+       "id": 3130,
+       "name": "Terence Atmane",
+       "abbreviation": "teratm",
+       "league": "atp",
+       "record": "",
+       "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/FRA.png",
+       "alias": "Terence Atmane",
+       "safeName": "Terence Atmane",
+       "colorPrimary": "#002395",
+       "ordering": "home",
+       "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/FRA.png",
+       "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/FRA.png",
+       "displayAbbreviation": "Atmane",
+       "ranking": "90",
+       "providerIds": [
+        {
+         "provider": "PROVIDER_ENETPULSE",
+         "providerId": "1100392"
+        },
+        {
+         "provider": "PROVIDER_SPORTRADAR",
+         "providerId": "sr:competitor:399633"
+        }
+       ],
+       "longIconDark": "https://static.polymarket.us/images/teams/tennis/atp/3130.png",
+       "shortIconDark": "https://static.polymarket.us/images/teams/tennis/atp/3130.png",
+       "color": {
+        "light": "#002395",
+        "dark": "#2E58C9"
+       },
+       "imageDisplayType": "IMAGE_DISPLAY_TYPE_HEADSHOT"
+      },
+      "quote": {
+       "value": "0.7100",
+       "currency": "USD"
+      },
+      "tradable": true
+     },
+     {
+      "id": "3869257",
+      "marketSideType": "MARKET_SIDE_TYPE_INSTRUMENT",
+      "identifier": "aec-atp-teratm-seohon-2026-10-30",
+      "createdAt": "2026-10-29T07:45:18Z",
+      "updatedAt": "2026-10-29T07:45:18Z",
+      "description": "Seong-Chan Hong",
+      "price": "0.7100",
+      "marketId": 1934897,
+      "long": false,
+      "teamId": 26666,
+      "team": {
+       "id": 26666,
+       "name": "Seong-Chan Hong",
+       "abbreviation": "seohon",
+       "league": "atp",
+       "record": "",
+       "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/KOR.png",
+       "alias": "Seong-Chan Hong",
+       "safeName": "Seong-Chan Hong",
+       "colorPrimary": "#CD2E3A",
+       "ordering": "away",
+       "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/KOR.png",
+       "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/KOR.png",
+       "displayAbbreviation": "Hong",
+       "ranking": "1015",
+       "providerIds": [
+        {
+         "provider": "PROVIDER_ENETPULSE",
+         "providerId": "446690"
+        },
+        {
+         "provider": "PROVIDER_SPORTRADAR",
+         "providerId": "sr:competitor:97977"
+        }
+       ],
+       "longIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/KOR.png",
+       "shortIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/KOR.png",
+       "color": {
+        "light": "#CD2E3A",
+        "dark": "#CD2E3A"
+       }
+      },
+      "quote": {
+       "value": "0.3",
+       "currency": "USD"
+      },
+      "tradable": true
+     }
+    ],
+    "outcomes": "[\"Terence Atmane\",\"Seong-Chan Hong\"]",
+    "outcomePrices": "[\"0.7000\",\"0.7100\"]",
+    "ep3Status": "OPEN",
+    "status": "MARKET_STATUS_OPEN",
+    "assetPriceTerms": null,
+    "sportsMarketTypeV2": "SPORTS_MARKET_TYPE_MONEYLINE",
+    "hidden": false,
+    "tags": [],
+    "title": "Terence Atmane vs Seong-Chan Hong",
+    "feeCoefficient": 0.0695,
+    "bestBidQuote": {
+     "value": "0.7000",
+     "currency": "USD"
+    },
+    "bestAskQuote": {
+     "value": "0.7100",
+     "currency": "USD"
+    },
+    "titleShort": "Atmane vs Hong",
+    "ep3SyncedAt": "2026-10-30T03:45:14Z",
+    "minimumTradeQty": 0.01,
+    "comboEnabled": true,
+    "politics": null
+   }
+  ],
+  "sportradarGameId": "sr:sport_event:75837726",
+  "participants": [],
+  "hidden": false,
+  "teams": [
+   {
+    "id": 3130,
+    "name": "Terence Atmane",
+    "abbreviation": "teratm",
+    "league": "atp",
+    "record": "",
+    "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/FRA.png",
+    "alias": "Terence Atmane",
+    "safeName": "Terence Atmane",
+    "colorPrimary": "#002395",
+    "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/FRA.png",
+    "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/FRA.png",
+    "displayAbbreviation": "Atmane",
+    "ranking": "90",
+    "providerIds": [
+     {
+      "provider": "PROVIDER_ENETPULSE",
+      "providerId": "1100392"
+     },
+     {
+      "provider": "PROVIDER_SPORTRADAR",
+      "providerId": "sr:competitor:399633"
+     }
+    ],
+    "longIconDark": "https://static.polymarket.us/images/teams/tennis/atp/3130.png",
+    "shortIconDark": "https://static.polymarket.us/images/teams/tennis/atp/3130.png",
+    "color": {
+     "light": "#002395",
+     "dark": "#2E58C9"
+    },
+    "imageDisplayType": "IMAGE_DISPLAY_TYPE_HEADSHOT"
+   },
+   {
+    "id": 26666,
+    "name": "Seong-Chan Hong",
+    "abbreviation": "seohon",
+    "league": "atp",
+    "record": "",
+    "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/KOR.png",
+    "alias": "Seong-Chan Hong",
+    "safeName": "Seong-Chan Hong",
+    "colorPrimary": "#CD2E3A",
+    "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/KOR.png",
+    "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/KOR.png",
+    "displayAbbreviation": "Hong",
+    "ranking": "1015",
+    "providerIds": [
+     {
+      "provider": "PROVIDER_ENETPULSE",
+      "providerId": "446690"
+     },
+     {
+      "provider": "PROVIDER_SPORTRADAR",
+      "providerId": "sr:competitor:97977"
+     }
+    ],
+    "longIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/KOR.png",
+    "shortIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/KOR.png",
+    "color": {
+     "light": "#CD2E3A",
+     "dark": "#CD2E3A"
+    }
+   }
+  ],
+  "sortType": "price",
+  "primaryTag": {
+   "id": "23",
+   "label": "ATP",
+   "slug": "atp",
+   "updatedAt": "2026-10-30T04:18:02Z",
+   "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/random-team-images/tennis/APT-NEW.png",
+   "tradable": false,
+   "league": {
+    "id": 12,
+    "name": "ATP",
+    "sportId": 8,
+    "tagId": 23,
+    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/random-team-images/tennis/APT-NEW.png",
+    "ordering": "home",
+    "activeSeriesId": 16,
+    "isOperational": true,
+    "automaticResolution": false,
+    "createdAt": "2026-03-20T19:11:04Z",
+    "slug": "atp"
+   },
+   "subtags": [],
+   "hub": null,
+   "featuredEventIds": []
+  },
+  "streamProvider": "sportradar",
+  "streamRequiresAuth": true,
+  "marketCounts": {
+   "numMarkets": 19,
+   "numSpreadsAndTotalsMarkets": 12
+  },
+  "fixtureId": "",
+  "payoutEstimateMessage": "",
+  "payoutEstimateTime": ""
+ },
+ {
+  "id": "200385",
+  "ticker": "wta-tamzid-alilin-2026-10-29",
+  "slug": "wta-tamzid-alilin-2026-10-29",
+  "title": "Tamara Zidansek vs. Alicia Herrero Linana",
+  "description": "Tamara Zidansek vs. Alicia Herrero Linana",
+  "startDate": "2026-10-30T01:35:00Z",
+  "endDate": "2026-10-31T03:59:00Z",
+  "active": true,
+  "closed": false,
+  "archived": false,
+  "category": "sports",
+  "createdAt": "2026-10-28T02:30:25Z",
+  "updatedAt": "2026-10-30T04:41:30Z",
+  "startTime": "2026-10-30T01:35:00Z",
+  "seriesSlug": "wta-2026",
+  "score": "7-6(7-3), 2-6, 6-7",
+  "period": "FT",
+  "live": false,
+  "ended": true,
+  "finishedTimestamp": "2026-10-30T04:41:30Z",
+  "markets": [
+   {
+    "id": "1892333",
+    "question": "Who will win in the upcoming wta event Tamara Zidansek vs Alicia Herrero Linana scheduled for October 29, 2026 at 8:00 PM UTC?",
+    "slug": "aec-wta-tamzid-alilin-2026-10-29",
+    "endDate": "2026-11-13T01:00:00Z",
+    "category": "sports",
+    "startDate": "2026-10-28T02:30:25Z",
+    "description": "This market will settle to the winner of the Tamara Zidansek vs Alicia Herrero Linana WTA match scheduled for October 29, 2026 at 4:00PM ET (as of the listing of the event's first instrument). If the match does not begin due to a walkover, withdrawal, or cancellation, the market will settle to the last fair market price. If a player retires or is disqualified during the match, the market will settle to the official winner of the match. If the match is delayed, postponed, suspended or otherwise rescheduled to a date and time not within two days of the originally scheduled date and time, the market will settle to the last fair market price. Outcome sourced from WTA.",
+    "active": true,
+    "marketType": "moneyline",
+    "closed": false,
+    "createdAt": "2026-10-28T02:30:25Z",
+    "updatedAt": "2026-10-30T04:15:45Z",
+    "archived": false,
+    "orderPriceMinTickSize": 0.01,
+    "gameStartTime": "2026-10-30T01:35:00Z",
+    "manualActivation": false,
+    "sportsMarketType": "tennis_match_winner",
+    "marketSides": [
+     {
+      "id": "3784132",
+      "marketSideType": "MARKET_SIDE_TYPE_INSTRUMENT",
+      "identifier": "aec-wta-tamzid-alilin-2026-10-29",
+      "createdAt": "2026-10-28T02:30:25Z",
+      "updatedAt": "2026-10-28T02:30:25Z",
+      "description": "Tamara Zidansek",
+      "price": "0.0100",
+      "marketId": 1892333,
+      "long": true,
+      "teamId": 3389,
+      "team": {
+       "id": 3389,
+       "name": "Tamara Zidansek",
+       "abbreviation": "tamzid",
+       "league": "wta",
+       "record": "",
+       "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/SVN.png",
+       "alias": "Tamara Zidansek",
+       "safeName": "Tamara Zidansek",
+       "colorPrimary": "#003DA5",
+       "ordering": "home",
+       "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/SVN.png",
+       "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/SVN.png",
+       "displayAbbreviation": "Zidansek",
+       "ranking": "141",
+       "providerIds": [
+        {
+         "provider": "PROVIDER_ENETPULSE",
+         "providerId": "547674"
+        },
+        {
+         "provider": "PROVIDER_SPORTRADAR",
+         "providerId": "sr:competitor:110299"
+        }
+       ],
+       "longIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/SVN.png",
+       "shortIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/SVN.png",
+       "color": {
+        "light": "#003DA5",
+        "dark": "#2259C3"
+       },
+       "imageDisplayType": "IMAGE_DISPLAY_TYPE_FLAG"
+      },
+      "quote": {
+       "value": "0.0100",
+       "currency": "USD"
+      },
+      "tradable": true
+     },
+     {
+      "id": "3784133",
+      "marketSideType": "MARKET_SIDE_TYPE_INSTRUMENT",
+      "identifier": "aec-wta-tamzid-alilin-2026-10-29",
+      "createdAt": "2026-10-28T02:30:25Z",
+      "updatedAt": "2026-10-28T02:30:25Z",
+      "description": "Alicia Herrero Linana",
+      "marketId": 1892333,
+      "long": false,
+      "teamId": 4598,
+      "team": {
+       "id": 4598,
+       "name": "Alicia Herrero Linana",
+       "abbreviation": "alilin",
+       "league": "wta",
+       "record": "",
+       "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ESP.png",
+       "alias": "Alicia Herrero Linana",
+       "safeName": "Alicia Herrero Linana",
+       "colorPrimary": "#AA151B",
+       "ordering": "away",
+       "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ESP.png",
+       "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ESP.png",
+       "displayAbbreviation": "Linana",
+       "ranking": "227",
+       "providerIds": [
+        {
+         "provider": "PROVIDER_ENETPULSE",
+         "providerId": "658293"
+        },
+        {
+         "provider": "PROVIDER_SPORTRADAR",
+         "providerId": "sr:competitor:119216"
+        }
+       ],
+       "longIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ESP.png",
+       "shortIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ESP.png",
+       "color": {
+        "light": "#AA151B",
+        "dark": "#B52525"
+       },
+       "imageDisplayType": "IMAGE_DISPLAY_TYPE_FLAG"
+      },
+      "tradable": true
+     }
+    ],
+    "outcomes": "[\"Tamara Zidansek\",\"Alicia Herrero Linana\"]",
+    "outcomePrices": "[\"0.0100\"]",
+    "ep3Status": "OPEN",
+    "status": "MARKET_STATUS_OPEN",
+    "assetPriceTerms": null,
+    "sportsMarketTypeV2": "SPORTS_MARKET_TYPE_MONEYLINE",
+    "hidden": false,
+    "tags": [],
+    "title": "Tamara Zidansek vs Alicia Herrero Linana",
+    "feeCoefficient": 0.0695,
+    "bestAskQuote": {
+     "value": "0.0100",
+     "currency": "USD"
+    },
+    "titleShort": "Zidansek vs Linana",
+    "ep3SyncedAt": "2026-10-30T01:45:22Z",
+    "minimumTradeQty": 0.01,
+    "comboEnabled": true,
+    "politics": null
+   }
+  ],
+  "sportradarGameId": "sr:sport_event:75838242",
+  "eventState": {
+   "id": 140613812,
+   "sportradarGameId": "sr:sport_event:75838242",
+   "type": "tennis",
+   "createdAt": "2026-10-30T00:55:01.471461Z",
+   "updatedAt": "2026-10-30T04:41:30.153388Z",
+   "score": "7-6(7-3), 2-6, 6-7",
+   "period": "FT",
+   "live": false,
+   "ended": true,
+   "finishedTimestamp": "2026-10-30T04:41:30.145925Z",
+   "tennisState": {
+    "tournamentName": "WTA 125K Queretaro, Mexico Women Singles",
+    "round": "Round of 16",
+    "servingTeamId": 4598
+   },
+   "marketGroupStats": [],
+   "periodScores": [
+    {
+     "number": 1,
+     "type": "PERIOD_SCORE_TYPE_REGULATION",
+     "label": "S1",
+     "scores": [
+      {
+       "competitorId": "3389",
+       "score": 7
+      },
+      {
+       "competitorId": "4598",
+       "score": 6
+      }
+     ]
+    },
+    {
+     "number": 2,
+     "type": "PERIOD_SCORE_TYPE_REGULATION",
+     "label": "S2",
+     "scores": [
+      {
+       "competitorId": "3389",
+       "score": 2
+      },
+      {
+       "competitorId": "4598",
+       "score": 6
+      }
+     ]
+    },
+    {
+     "number": 3,
+     "type": "PERIOD_SCORE_TYPE_REGULATION",
+     "label": "S3",
+     "scores": [
+      {
+       "competitorId": "3389",
+       "score": 6
+      },
+      {
+       "competitorId": "4598",
+       "score": 7
+      }
+     ]
+    }
+   ],
+   "eventId": 200385
+  },
+  "participants": [],
+  "hidden": false,
+  "teams": [
+   {
+    "id": 3389,
+    "name": "Tamara Zidansek",
+    "abbreviation": "tamzid",
+    "league": "wta",
+    "record": "",
+    "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/SVN.png",
+    "alias": "Tamara Zidansek",
+    "safeName": "Tamara Zidansek",
+    "colorPrimary": "#003DA5",
+    "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/SVN.png",
+    "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/SVN.png",
+    "displayAbbreviation": "Zidansek",
+    "ranking": "141",
+    "providerIds": [
+     {
+      "provider": "PROVIDER_ENETPULSE",
+      "providerId": "547674"
+     },
+     {
+      "provider": "PROVIDER_SPORTRADAR",
+      "providerId": "sr:competitor:110299"
+     }
+    ],
+    "longIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/SVN.png",
+    "shortIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/SVN.png",
+    "color": {
+     "light": "#003DA5",
+     "dark": "#2259C3"
+    },
+    "imageDisplayType": "IMAGE_DISPLAY_TYPE_FLAG"
+   },
+   {
+    "id": 4598,
+    "name": "Alicia Herrero Linana",
+    "abbreviation": "alilin",
+    "league": "wta",
+    "record": "",
+    "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ESP.png",
+    "alias": "Alicia Herrero Linana",
+    "safeName": "Alicia Herrero Linana",
+    "colorPrimary": "#AA151B",
+    "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ESP.png",
+    "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ESP.png",
+    "displayAbbreviation": "Linana",
+    "ranking": "227",
+    "providerIds": [
+     {
+      "provider": "PROVIDER_ENETPULSE",
+      "providerId": "658293"
+     },
+     {
+      "provider": "PROVIDER_SPORTRADAR",
+      "providerId": "sr:competitor:119216"
+     }
+    ],
+    "longIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ESP.png",
+    "shortIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/ESP.png",
+    "color": {
+     "light": "#AA151B",
+     "dark": "#B52525"
+    },
+    "imageDisplayType": "IMAGE_DISPLAY_TYPE_FLAG"
+   }
+  ],
+  "metadata": {
+   "politics": null,
+   "gameState": {
+    "id": 140613812,
+    "sportradarGameId": "sr:sport_event:75838242",
+    "type": "tennis",
+    "createdAt": "2026-10-30T00:55:01.471461Z",
+    "updatedAt": "2026-10-30T04:41:30.153388Z",
+    "score": "7-6(7-3), 2-6, 6-7",
+    "period": "FT",
+    "live": false,
+    "ended": true,
+    "finishedTimestamp": "2026-10-30T04:41:30.145925Z",
+    "tennisState": {
+     "tournamentName": "WTA 125K Queretaro, Mexico Women Singles",
+     "round": "Round of 16",
+     "servingTeamId": 4598
+    },
+    "marketGroupStats": [],
+    "periodScores": [
+     {
+      "number": 1,
+      "type": "PERIOD_SCORE_TYPE_REGULATION",
+      "label": "S1",
+      "scores": [
+       {
+        "competitorId": "3389",
+        "score": 7
+       },
+       {
+        "competitorId": "4598",
+        "score": 6
+       }
+      ]
+     },
+     {
+      "number": 2,
+      "type": "PERIOD_SCORE_TYPE_REGULATION",
+      "label": "S2",
+      "scores": [
+       {
+        "competitorId": "3389",
+        "score": 2
+       },
+       {
+        "competitorId": "4598",
+        "score": 6
+       }
+      ]
+     },
+     {
+      "number": 3,
+      "type": "PERIOD_SCORE_TYPE_REGULATION",
+      "label": "S3",
+      "scores": [
+       {
+        "competitorId": "3389",
+        "score": 6
+       },
+       {
+        "competitorId": "4598",
+        "score": 7
+       }
+      ]
+     }
+    ],
+    "eventId": 0
+   }
+  },
+  "sortType": "price",
+  "primaryTag": {
+   "id": "24",
+   "label": "WTA",
+   "slug": "wta",
+   "updatedAt": "2026-10-30T04:18:02Z",
+   "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/random-team-images/tennis/WTA-NEW.png",
+   "tradable": false,
+   "league": {
+    "id": 13,
+    "name": "WTA",
+    "sportId": 8,
+    "tagId": 24,
+    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/random-team-images/tennis/WTA-NEW.png",
+    "ordering": "home",
+    "activeSeriesId": 17,
+    "isOperational": true,
+    "automaticResolution": false,
+    "createdAt": "2026-03-20T20:13:22Z",
+    "slug": "wta"
+   },
+   "subtags": [],
+   "hub": null,
+   "featuredEventIds": []
+  },
+  "streamProvider": "",
+  "streamRequiresAuth": false,
+  "marketCounts": {
+   "numMarkets": 19,
+   "numSpreadsAndTotalsMarkets": 12
+  },
+  "fixtureId": "",
+  "payoutEstimateMessage": "",
+  "payoutEstimateTime": ""
+ },
+ {
+  "id": "205840",
+  "ticker": "wta-miapoh-alypar-2026-10-29",
+  "slug": "wta-miapoh-alypar-2026-10-29",
+  "title": "Mia Pohankova vs. Alycia Parks",
+  "description": "Mia Pohankova vs. Alycia Parks",
+  "startDate": "2026-10-30T04:10:00Z",
+  "endDate": "2026-10-31T03:59:00Z",
+  "active": true,
+  "closed": false,
+  "archived": false,
+  "category": "sports",
+  "createdAt": "2026-10-29T07:45:23Z",
+  "updatedAt": "2026-10-30T04:41:29Z",
+  "startTime": "2026-10-30T04:10:00Z",
+  "seriesSlug": "wta-2026",
+  "score": "3-2:0-0",
+  "period": "S1",
+  "live": true,
+  "ended": false,
+  "markets": [
+   {
+    "id": "1934898",
+    "question": "Who will win in the upcoming wta event Mia Pohankova vs Alycia Parks scheduled for October 30, 2026 at 1:30 AM UTC?",
+    "slug": "aec-wta-miapoh-alypar-2026-10-29",
+    "endDate": "2026-11-13T06:30:00Z",
+    "category": "sports",
+    "startDate": "2026-10-29T07:45:23Z",
+    "description": "This market will settle to the winner of the Mia Pohankova vs Alycia Parks WTA match scheduled for October 29, 2026 at 9:30PM ET (as of the listing of the event's first instrument). If the match does not begin due to a walkover, withdrawal, or cancellation, the market will settle to the last fair market price. If a player retires or is disqualified during the match, the market will settle to the official winner of the match. If the match is delayed, postponed, suspended or otherwise rescheduled to a date and time not within two days of the originally scheduled date and time, the market will settle to the last fair market price. Outcome sourced from WTA.",
+    "active": true,
+    "marketType": "moneyline",
+    "closed": false,
+    "createdAt": "2026-10-29T07:45:23Z",
+    "updatedAt": "2026-10-30T04:15:45Z",
+    "archived": false,
+    "orderPriceMinTickSize": 0.01,
+    "gameStartTime": "2026-10-30T04:10:00Z",
+    "manualActivation": false,
+    "sportsMarketType": "tennis_match_winner",
+    "marketSides": [
+     {
+      "id": "3869258",
+      "marketSideType": "MARKET_SIDE_TYPE_INSTRUMENT",
+      "identifier": "aec-wta-miapoh-alypar-2026-10-29",
+      "createdAt": "2026-10-29T07:45:23Z",
+      "updatedAt": "2026-10-29T07:45:23Z",
+      "description": "Mia Pohankova",
+      "price": "0.7300",
+      "marketId": 1934898,
+      "long": true,
+      "teamId": 8479,
+      "team": {
+       "id": 8479,
+       "name": "Mia Pohankova",
+       "abbreviation": "miapoh",
+       "league": "wta",
+       "record": "",
+       "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/SVK.png",
+       "alias": "Mia Pohankova",
+       "safeName": "Mia Pohankova",
+       "colorPrimary": "#003DA5",
+       "ordering": "home",
+       "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/SVK.png",
+       "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/SVK.png",
+       "displayAbbreviation": "Pohankova",
+       "ranking": "144",
+       "providerIds": [
+        {
+         "provider": "PROVIDER_ENETPULSE",
+         "providerId": "1580512"
+        },
+        {
+         "provider": "PROVIDER_SPORTRADAR",
+         "providerId": "sr:competitor:1076038"
+        }
+       ],
+       "longIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/SVK.png",
+       "shortIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/SVK.png",
+       "color": {
+        "light": "#003DA5",
+        "dark": "#2259C3"
+       },
+       "imageDisplayType": "IMAGE_DISPLAY_TYPE_FLAG"
+      },
+      "quote": {
+       "value": "0.7400",
+       "currency": "USD"
+      },
+      "tradable": true
+     },
+     {
+      "id": "3869259",
+      "marketSideType": "MARKET_SIDE_TYPE_INSTRUMENT",
+      "identifier": "aec-wta-miapoh-alypar-2026-10-29",
+      "createdAt": "2026-10-29T07:45:23Z",
+      "updatedAt": "2026-10-29T07:45:23Z",
+      "description": "Alycia Parks",
+      "price": "0.7400",
+      "marketId": 1934898,
+      "long": false,
+      "teamId": 4711,
+      "team": {
+       "id": 4711,
+       "name": "Alycia Parks",
+       "abbreviation": "alypar",
+       "league": "wta",
+       "record": "",
+       "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/USA.png",
+       "alias": "Alycia Parks",
+       "safeName": "Alycia Parks",
+       "colorPrimary": "#B22234",
+       "ordering": "away",
+       "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/USA.png",
+       "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/USA.png",
+       "displayAbbreviation": "Parks",
+       "ranking": "65",
+       "providerIds": [
+        {
+         "provider": "PROVIDER_ENETPULSE",
+         "providerId": "866313"
+        },
+        {
+         "provider": "PROVIDER_SPORTRADAR",
+         "providerId": "sr:competitor:256547"
+        }
+       ],
+       "longIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/USA.png",
+       "shortIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/USA.png",
+       "color": {
+        "light": "#B22234",
+        "dark": "#B22234"
+       },
+       "imageDisplayType": "IMAGE_DISPLAY_TYPE_FLAG"
+      },
+      "quote": {
+       "value": "0.27",
+       "currency": "USD"
+      },
+      "tradable": true
+     }
+    ],
+    "outcomes": "[\"Mia Pohankova\",\"Alycia Parks\"]",
+    "outcomePrices": "[\"0.7300\",\"0.7400\"]",
+    "ep3Status": "OPEN",
+    "status": "MARKET_STATUS_OPEN",
+    "assetPriceTerms": null,
+    "sportsMarketTypeV2": "SPORTS_MARKET_TYPE_MONEYLINE",
+    "hidden": false,
+    "tags": [],
+    "title": "Mia Pohankova vs Alycia Parks",
+    "feeCoefficient": 0.0695,
+    "bestBidQuote": {
+     "value": "0.7300",
+     "currency": "USD"
+    },
+    "bestAskQuote": {
+     "value": "0.7400",
+     "currency": "USD"
+    },
+    "titleShort": "Pohankova vs Parks",
+    "ep3SyncedAt": "2026-10-30T04:00:35Z",
+    "minimumTradeQty": 0.01,
+    "comboEnabled": true,
+    "politics": null
+   }
+  ],
+  "sportradarGameId": "sr:sport_event:75838016",
+  "eventState": {
+   "id": 140620552,
+   "sportradarGameId": "sr:sport_event:75838016",
+   "type": "tennis",
+   "createdAt": "2026-10-30T02:25:00.874356Z",
+   "updatedAt": "2026-10-30T04:41:29.217053Z",
+   "score": "3-2:0-0",
+   "period": "S1",
+   "live": true,
+   "ended": false,
+   "tennisState": {
+    "tournamentName": "WTA Tokyo, Japan Women Singles",
+    "round": "Quarterfinal",
+    "servingTeamId": 8479
+   },
+   "marketGroupStats": [],
+   "periodScores": [
+    {
+     "number": 1,
+     "type": "PERIOD_SCORE_TYPE_REGULATION",
+     "label": "S1",
+     "scores": [
+      {
+       "competitorId": "8479",
+       "score": 3
+      },
+      {
+       "competitorId": "4711",
+       "score": 2
+      }
+     ]
+    }
+   ],
+   "eventId": 205840
+  },
+  "participants": [],
+  "hidden": false,
+  "teams": [
+   {
+    "id": 8479,
+    "name": "Mia Pohankova",
+    "abbreviation": "miapoh",
+    "league": "wta",
+    "record": "",
+    "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/SVK.png",
+    "alias": "Mia Pohankova",
+    "safeName": "Mia Pohankova",
+    "colorPrimary": "#003DA5",
+    "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/SVK.png",
+    "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/SVK.png",
+    "displayAbbreviation": "Pohankova",
+    "ranking": "144",
+    "providerIds": [
+     {
+      "provider": "PROVIDER_ENETPULSE",
+      "providerId": "1580512"
+     },
+     {
+      "provider": "PROVIDER_SPORTRADAR",
+      "providerId": "sr:competitor:1076038"
+     }
+    ],
+    "longIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/SVK.png",
+    "shortIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/SVK.png",
+    "color": {
+     "light": "#003DA5",
+     "dark": "#2259C3"
+    },
+    "imageDisplayType": "IMAGE_DISPLAY_TYPE_FLAG"
+   },
+   {
+    "id": 4711,
+    "name": "Alycia Parks",
+    "abbreviation": "alypar",
+    "league": "wta",
+    "record": "",
+    "logo": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/USA.png",
+    "alias": "Alycia Parks",
+    "safeName": "Alycia Parks",
+    "colorPrimary": "#B22234",
+    "longIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/USA.png",
+    "shortIcon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/USA.png",
+    "displayAbbreviation": "Parks",
+    "ranking": "65",
+    "providerIds": [
+     {
+      "provider": "PROVIDER_ENETPULSE",
+      "providerId": "866313"
+     },
+     {
+      "provider": "PROVIDER_SPORTRADAR",
+      "providerId": "sr:competitor:256547"
+     }
+    ],
+    "longIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/USA.png",
+    "shortIconDark": "https://polymarket-upload.s3.us-east-2.amazonaws.com/us-countries/USA.png",
+    "color": {
+     "light": "#B22234",
+     "dark": "#B22234"
+    },
+    "imageDisplayType": "IMAGE_DISPLAY_TYPE_FLAG"
+   }
+  ],
+  "metadata": {
+   "politics": null,
+   "gameState": {
+    "id": 140620552,
+    "sportradarGameId": "sr:sport_event:75838016",
+    "type": "tennis",
+    "createdAt": "2026-10-30T02:25:00.874356Z",
+    "updatedAt": "2026-10-30T04:41:29.217053Z",
+    "score": "3-2:0-0",
+    "period": "S1",
+    "live": true,
+    "ended": false,
+    "tennisState": {
+     "tournamentName": "WTA Tokyo, Japan Women Singles",
+     "round": "Quarterfinal",
+     "servingTeamId": 8479
+    },
+    "marketGroupStats": [],
+    "periodScores": [
+     {
+      "number": 1,
+      "type": "PERIOD_SCORE_TYPE_REGULATION",
+      "label": "S1",
+      "scores": [
+       {
+        "competitorId": "8479",
+        "score": 3
+       },
+       {
+        "competitorId": "4711",
+        "score": 2
+       }
+      ]
+     }
+    ],
+    "eventId": 0
+   }
+  },
+  "sortType": "price",
+  "primaryTag": {
+   "id": "24",
+   "label": "WTA",
+   "slug": "wta",
+   "updatedAt": "2026-10-30T04:18:02Z",
+   "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/random-team-images/tennis/WTA-NEW.png",
+   "tradable": false,
+   "league": {
+    "id": 13,
+    "name": "WTA",
+    "sportId": 8,
+    "tagId": 24,
+    "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/random-team-images/tennis/WTA-NEW.png",
+    "ordering": "home",
+    "activeSeriesId": 17,
+    "isOperational": true,
+    "automaticResolution": false,
+    "createdAt": "2026-03-20T20:13:22Z",
+    "slug": "wta"
+   },
+   "subtags": [],
+   "hub": null,
+   "featuredEventIds": []
+  },
+  "secondaryTag": {
+   "id": "1901",
+   "label": "WTA Tokyo, Japan Women Singles",
+   "slug": "tennis-wta-tokyo-japan-women-singles",
+   "updatedAt": "2026-10-30T04:18:02Z",
+   "subtags": [],
+   "hub": null,
+   "featuredEventIds": []
+  },
+  "streamProvider": "",
+  "streamRequiresAuth": false,
+  "marketCounts": {
+   "numMarkets": 19,
+   "numSpreadsAndTotalsMarkets": 12
+  },
+  "fixtureId": "",
+  "payoutEstimateMessage": "",
+  "payoutEstimateTime": ""
+ }
+]

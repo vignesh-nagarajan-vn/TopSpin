@@ -1,0 +1,14 @@
+# Manual score-feed <-> market mapping overrides (audited; every use is journaled).
+# Only needed when an external score provider cannot be matched automatically.
+# Each entry must name both players exactly as the market lists them.
+#
+# overrides:
+#   - market_slug: aec-atp-xxx-yyy-2026-10-30
+#     score_provider: example_provider
+#     score_match_id: "12345"
+#     long_player: "Player Name One"
+#     short_player: "Player Name Two"
+#     reason: "provider spells name differently"
+#     added_by: "operator initials"
+#     added_at: "2026-10-30"
+overrides: []

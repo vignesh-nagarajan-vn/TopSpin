@@ -1,0 +1,3 @@
+# Paper mode overlay. Paper never loads trading credentials or the live adapter.
+operations:
+  mode: paper
