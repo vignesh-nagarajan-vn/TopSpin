@@ -3,7 +3,8 @@
 Taker orders
     Reach the simulated exchange ``taker_delay_ms`` after submission. They are matched
     against the book policy (default ``intersect``: liquidity present both in the last book
-    before arrival and the first book after it), take at most ``paper_fill_fraction`` of
+    before arrival and the first book whose *data* postdates arrival, so a cached response
+    received after arrival does not count), take at most ``paper_fill_fraction`` of
     each displayed level, respect the limit, walk levels, pay rounded taker fees, allow
     partial fills and complete non-fills, and are rejected if the market is not open or no
     fresh book exists at arrival. An order is never filled at a price that disappeared
@@ -48,6 +49,7 @@ class _BookState:
     view: OrderBookView | None = None
     state: MarketState = MarketState.UNKNOWN
     ts_ns: int | None = None
+    as_of_ns: int | None = None
     consumed: dict[Decimal, Decimal] = field(default_factory=dict)
 
 
@@ -60,6 +62,7 @@ class PaperBroker:
         market_for: Callable[[str], MarketInfo | None],
         *,
         max_book_staleness_s: float,
+        unknown_cache_age_s: float = 0.0,
         sink: EventSink | None = None,
     ) -> None:
         self.cfg = cfg
@@ -67,6 +70,7 @@ class PaperBroker:
         self.fee_model_for = fee_model_for
         self.market_for = market_for
         self.max_staleness_ns = int(max_book_staleness_s * NS_PER_S)
+        self.unknown_cache_age_s = unknown_cache_age_s
         self.sink = sink or (lambda kind, payload: None)
         self.orders: dict[str, Order] = {}
         self.books: dict[str, _BookState] = {}
@@ -122,6 +126,9 @@ class PaperBroker:
 
     def on_book(self, snap: BookSnapshot) -> None:
         bs = self._book(snap.market_slug)
+        as_of = snap.as_of_ns(self.unknown_cache_age_s)
+        if bs.as_of_ns is not None and as_of < bs.as_of_ns:
+            return  # an older cached response; the exchange has already moved past this
         try:
             view = snap.view()
             view.validate()
@@ -129,12 +136,14 @@ class PaperBroker:
             view = None
         # 1. Orders that arrived before this snapshot see (prior, this) books. They share
         #    one view of "after" so our own fills deplete its displayed size.
-        nxt = _BookState(view=view, state=snap.state, ts_ns=snap.local_ts_ns)
+        nxt = _BookState(view=view, state=snap.state, ts_ns=snap.local_ts_ns, as_of_ns=as_of)
         for o in sorted(self.open_orders(), key=lambda x: x.arrival_local_ts_ns or 0):
             if o.market_slug != snap.market_slug or o.state != OrderState.PENDING_NEW:
                 continue
             if o.arrival_local_ts_ns is None or o.arrival_local_ts_ns > snap.local_ts_ns:
                 continue
+            if self.cfg.fill_book_policy != "prior" and o.arrival_local_ts_ns > as_of:
+                continue  # received after arrival, but this data predates it: keep waiting
             if self._canceled_before_arrival(o):
                 continue
             if self.cfg.fill_book_policy == "prior":
@@ -145,6 +154,7 @@ class PaperBroker:
         bs.view = view
         bs.state = snap.state
         bs.ts_ns = snap.local_ts_ns
+        bs.as_of_ns = as_of
         bs.consumed = dict(nxt.consumed)
 
     def on_trade(self, tp: TradePrint) -> None:
@@ -208,8 +218,8 @@ class PaperBroker:
             return
         if (
             prior.view is None
-            or prior.ts_ns is None
-            or (o.arrival_local_ts_ns or at) - prior.ts_ns > self.max_staleness_ns
+            or prior.as_of_ns is None
+            or (o.arrival_local_ts_ns or at) - prior.as_of_ns > self.max_staleness_ns
         ):
             self._terminate(o, OrderState.REJECTED, "stale_book_at_arrival", at)
             return
