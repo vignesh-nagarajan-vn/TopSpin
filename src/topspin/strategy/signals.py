@@ -33,6 +33,7 @@ class Reason(StrEnum):
     BAND_TOO_WIDE = "model_band_too_wide"
     NEAR_CERTAIN = "near_certain_outcome"
     MATCH_NOT_LIVE = "match_not_live"
+    SCORE_GAP = "score_data_gap"
     # market
     MARKET_NOT_OPEN = "market_not_open"
     BOOK_UNTRADEABLE = "book_untradeable"

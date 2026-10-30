@@ -451,6 +451,8 @@ class TradingEngine:
                 else:
                     if oriented.match_over or oriented.status != MatchStatus.LIVE:
                         why = Reason.MATCH_NOT_LIVE
+                    elif ev.detail.get("gap") == "true":
+                        why = Reason.SCORE_GAP
                     elif not ctx.detector.server_reliable:
                         why = Reason.SERVER_UNKNOWN
                     else:
