@@ -1,0 +1,111 @@
+# TopSpin - default configuration (research defaults, NOT optimized).
+# Rationale for each value: docs/assumptions.md. Unknown keys are rejected.
+
+exchange:
+  venue: polymarket_us
+  public_base_url: https://gateway.polymarket.us   # public reference + book data (no key)
+  api_base_url: https://api.polymarket.us          # authenticated trading API (live only)
+  ws_markets_url: wss://api.polymarket.us/v1/ws/markets
+  ws_private_url: wss://api.polymarket.us/v1/ws/private
+  request_timeout_s: 10
+  max_requests_per_second: 8          # documented limit is 25/s per IP
+  retry_max_attempts: 3
+  retry_backoff_s: 1.0
+  leagues: [atp, wta]
+  supported_market_types: [tennis_match_winner]
+
+discovery:
+  max_tracked_matches: 8
+  refresh_interval_s: 60
+  lookahead_hours: 12
+  max_spread_for_tracking: 0.10
+  tournaments_file: config/tournaments.yaml
+  overrides_file: config/match_overrides.yaml
+
+feeds:
+  score_poll_interval_s: 2.0
+  book_poll_interval_s: 1.0
+  use_market_websocket: false         # needs a full API key; see docs/venue-verification.md
+  max_score_staleness_s: 20
+  max_book_staleness_s: 5
+
+model:
+  serve_baseline: {ATP: 0.645, WTA: 0.565}   # tour-average serve points won (assumption)
+  serve_baseline_delta: 0.03
+  serve_p_min: 0.40
+  serve_p_max: 0.85
+  calibration_tolerance: 1.0e-6
+  uncertainty_floor: 0.01
+  max_band_width: 0.15
+  anchor_max_spread: 0.04
+  anchor_max_age_s: 300
+  anchor_min_lead_s: 30             # margin for a lagging "not started" status
+  anchor_min_depth: 50
+  anchor_min_prob: 0.05
+  anchor_max_prob: 0.95
+
+strategy:
+  enabled_entry_events: [break, set_complete]
+  min_net_edge: 0.02              # $ per $1 contract, after fees and all haircuts
+  min_expected_net_pnl: 0.50      # $ per order
+  max_spread: 0.04
+  min_executable_depth: 25        # contracts within the allowed price range
+  adverse_selection_allowance: 0.01
+  slippage_allowance_ticks: 1
+  entry_window_s: 15
+  reentry_cooldown_s: 120
+  reentry_min_edge_increment: 0.01
+  exit_min_improvement: 0.0
+  no_entry_above_prob: 0.95
+  no_entry_below_prob: 0.05
+  minutes_per_game: 4.0
+  min_holding_minutes: 1.0
+  maker_policy: never
+  resting_exit_lifetime_s: 10
+  allow_swing_ev_entry: false
+  set_winner_trading: false
+  point_scalping: false
+  market_making: false
+
+risk:
+  bankroll: "1000"
+  max_risk_per_match_frac: 0.02
+  max_portfolio_risk_frac: 0.10
+  daily_loss_halt_frac: 0.05
+  kelly_multiplier: 0.25
+  min_order_qty: "1"
+  max_order_qty: "5000"
+  max_unmatched_order_exposure_frac: 0.05
+  halt_latch_path: state/halt_latch.json
+
+fees:
+  schedule_version: polymarket-us-2026-10-19
+  taker_theta: "0.0695"
+  count_maker_rebates: false
+  use_market_fee_coefficient: true
+
+simulation:
+  taker_delay_ms: 500
+  cancel_delay_ms: 300
+  fill_book_policy: intersect
+  paper_fill_fraction: 0.5
+  maker_queue: back_of_queue
+  slippage_stress_ticks: 0
+  seed: 7
+
+operations:
+  mode: paper
+  data_dir: data
+  journal_dir: data/journal
+  db_path: data/topspin.sqlite
+  report_dir: reports
+  log_level: INFO
+  emergency_stop_file: state/EMERGENCY_STOP
+
+live:
+  enabled: false
+  max_order_value: "0"
+  authorization_file: config/live_authorization.yaml
+  cancel_policy: bot_orders_only
+  require_gate_evidence: true
+  gate_evidence_file: reports/gate_evidence.json
