@@ -9,6 +9,8 @@ from typing import Any
 
 from pydantic import BaseModel, Field
 
+from topspin.timeutil import NS_PER_S
+
 ZERO = Decimal("0")
 ONE = Decimal("1")
 EXCHANGE_MIN_PRICE = Decimal("0.01")
@@ -241,6 +243,18 @@ class BookSnapshot(BaseModel):
     source: str = "rest"
     last_trade_px: str | None = None
     shares_traded: str | None = None
+    # Age of this response in an HTTP cache, when the response reports one.
+    cache_age_s: float | None = None
+    cache_status: str | None = None
+
+    def as_of_ns(self, unknown_cache_age_s: float = 0.0) -> int:
+        """When this data was current. The public REST route is CDN-cached, so receipt time
+        overstates freshness; a REST book with no reported age is assumed to be
+        ``unknown_cache_age_s`` old. Streamed and replayed sources have no cache."""
+        age = self.cache_age_s
+        if age is None:
+            age = unknown_cache_age_s if self.source == "rest" else 0.0
+        return self.local_ts_ns - int(age * NS_PER_S)
 
     def view(self) -> OrderBookView:
         return OrderBookView(

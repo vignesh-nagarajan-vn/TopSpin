@@ -135,9 +135,9 @@ class Runner:
                 if slug in self.ended and now_ns() - self.ended[slug] > 600 * NS_PER_S:
                     continue
                 try:
-                    ev = await self.client.get_event(mi.event_slug)
+                    ev, cache = await self.client.fetch_event(mi.event_slug)
                     ts = now_ns()
-                    snap = parse_event_score(ev, ts)
+                    snap = parse_event_score(ev, ts, cache)
                     await self._put("score", snap.model_dump(mode="json"), ts, snap.source_ts_ns)
                     if snap.status.is_terminal or snap.status == MatchStatus.RETIRED:
                         self.ended.setdefault(slug, ts)
@@ -171,9 +171,9 @@ class Runner:
                     continue
                 t0 = mono_ns()
                 try:
-                    raw = await self.client.get_book(slug)
+                    raw, cache = await self.client.fetch_book(slug)
                     ts = now_ns()
-                    snap = parse_book(raw, ts)
+                    snap = parse_book(raw, ts, cache=cache)
                     payload = snap.model_dump(mode="json")
                     payload["request_latency_ms"] = (mono_ns() - t0) / 1e6
                     await self._put("book", payload, ts, snap.transact_time_ns)

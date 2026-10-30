@@ -49,8 +49,11 @@ class FeedConfig(_Strict):
     score_poll_interval_s: float = Field(2.0, gt=0)
     book_poll_interval_s: float = Field(1.0, gt=0)
     use_market_websocket: bool = False
+    # Both limits apply to data age (receipt time minus reported cache age), not receipt time.
     max_score_staleness_s: float = 20.0
     max_book_staleness_s: float = 5.0
+    # Assumed age of a public-route response that reports none (e.g. older journals).
+    unknown_cache_age_s: float = Field(30.0, ge=0)
 
 
 class ModelConfig(_Strict):

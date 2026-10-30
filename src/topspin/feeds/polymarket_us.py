@@ -21,6 +21,7 @@ import asyncio
 import re
 import time
 from collections.abc import Mapping
+from dataclasses import dataclass
 from decimal import Decimal, InvalidOperation
 from typing import Any
 
@@ -63,6 +64,35 @@ _POINT_TOKENS = {"0", "15", "30", "40", "A", "AD"}
 
 class ParseError(ValueError):
     pass
+
+
+@dataclass(frozen=True, slots=True)
+class CacheInfo:
+    """What a response says about its age in the CDN. ``age_s`` is None when it is cached
+    but its age cannot be determined."""
+
+    age_s: float | None
+    status: str | None
+
+
+_MAX_AGE = re.compile(r"max-age=(\d+)")
+
+
+def cache_info(headers: Mapping[str, str]) -> CacheInfo:
+    """Read the cache age from response headers.
+
+    Public Polymarket US endpoints are served through Cloudflare with
+    ``Cache-Control: public, max-age=30``, so a response can be up to about 30 s old however
+    often it is polled. A hit without an ``Age`` header is assumed to be as old as it may be.
+    """
+    status = headers.get("cf-cache-status")
+    age = headers.get("age")
+    if age is not None and age.strip().isdigit():
+        return CacheInfo(float(age), status)
+    if (status or "").upper() in ("HIT", "STALE", "UPDATING"):
+        m = _MAX_AGE.search(headers.get("cache-control") or "")
+        return CacheInfo(float(m.group(1)) if m else None, status)
+    return CacheInfo(0.0, status)  # served fresh from the origin
 
 
 def _dec(value: Any) -> Decimal | None:
@@ -133,7 +163,9 @@ def _string_order(
     return None
 
 
-def parse_event_score(event: Mapping[str, Any], local_ts_ns: int | None = None) -> ScoreSnapshot:
+def parse_event_score(
+    event: Mapping[str, Any], local_ts_ns: int | None = None, cache: CacheInfo | None = None
+) -> ScoreSnapshot:
     """Normalize a Polymarket US tennis event payload into a ``ScoreSnapshot``."""
     local = local_ts_ns if local_ts_ns is not None else now_ns()
     teams = event.get("teams") or []
@@ -218,6 +250,8 @@ def parse_event_score(event: Mapping[str, Any], local_ts_ns: int | None = None) 
         round_name=tennis.get("round"),
         capabilities=caps,
         quality_flags=flags,
+        cache_age_s=cache.age_s if cache else None,
+        cache_status=cache.status if cache else None,
     )
 
 
@@ -339,7 +373,10 @@ def parse_market(
 
 
 def parse_book(
-    payload: Mapping[str, Any], local_ts_ns: int | None = None, source: str = "rest"
+    payload: Mapping[str, Any],
+    local_ts_ns: int | None = None,
+    source: str = "rest",
+    cache: CacheInfo | None = None,
 ) -> BookSnapshot:
     md = payload.get("marketData") or payload
     if "marketSlug" not in md:
@@ -365,6 +402,8 @@ def parse_book(
         local_ts_ns=local_ts_ns if local_ts_ns is not None else now_ns(),
         mono_ns=mono_ns(),
         source=source,
+        cache_age_s=cache.age_s if cache else None,
+        cache_status=cache.status if cache else None,
         last_trade_px=str(_amount(stats.get("lastTradePx"))) if stats.get("lastTradePx") else None,
         shares_traded=stats.get("sharesTraded"),
     )
@@ -419,6 +458,11 @@ class PolymarketUSPublicClient:
         await self._client.aclose()
 
     async def _get(self, path: str, params: dict[str, Any] | None = None) -> Any:
+        return (await self._get_with_cache(path, params))[0]
+
+    async def _get_with_cache(
+        self, path: str, params: dict[str, Any] | None = None
+    ) -> tuple[Any, CacheInfo]:
         last_exc: Exception | None = None
         for attempt in range(self._max_attempts):
             await self._limiter.wait()
@@ -428,7 +472,7 @@ class PolymarketUSPublicClient:
                 last_exc = exc
             else:
                 if resp.status_code == 200:
-                    return resp.json()
+                    return resp.json(), cache_info(resp.headers)
                 if resp.status_code == 404:
                     raise LookupError(f"{path} not found")
                 if resp.status_code not in (429, 500, 502, 503, 504):
@@ -475,6 +519,13 @@ class PolymarketUSPublicClient:
 
     async def get_book(self, slug: str) -> dict[str, Any]:
         return await self._get(f"/v1/markets/{slug}/book")
+
+    async def fetch_event(self, slug: str) -> tuple[dict[str, Any], CacheInfo]:
+        data, cache = await self._get_with_cache(f"/v1/events/slug/{slug}")
+        return data.get("event") or data, cache
+
+    async def fetch_book(self, slug: str) -> tuple[dict[str, Any], CacheInfo]:
+        return await self._get_with_cache(f"/v1/markets/{slug}/book")
 
     async def get_settlement(self, slug: str) -> Decimal | None:
         """Official settlement price (YES), or None while unsettled."""

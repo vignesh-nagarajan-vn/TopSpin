@@ -28,6 +28,7 @@ feeds:
   use_market_websocket: false         # needs a full API key; see docs/venue-verification.md
   max_score_staleness_s: 20
   max_book_staleness_s: 5
+  unknown_cache_age_s: 30           # public REST is CDN-cached with max-age=30
 
 model:
   serve_baseline: {ATP: 0.645, WTA: 0.565}   # tour-average serve points won (assumption)

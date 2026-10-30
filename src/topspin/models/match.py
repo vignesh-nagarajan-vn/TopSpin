@@ -6,6 +6,11 @@ from enum import StrEnum
 
 from pydantic import BaseModel, Field
 
+from topspin.timeutil import NS_PER_S
+
+# Providers served through a CDN cache, so receipt time overstates freshness.
+CACHED_SCORE_PROVIDERS = frozenset({"polymarket_us_event_state"})
+
 
 class MatchStatus(StrEnum):
     NOT_STARTED = "not_started"
@@ -66,3 +71,13 @@ class ScoreSnapshot(BaseModel):
     round_name: str | None = None
     capabilities: FeedCapabilities = Field(default_factory=FeedCapabilities)
     quality_flags: list[str] = Field(default_factory=list)
+    # Age of this response in an HTTP cache, when the response reports one.
+    cache_age_s: float | None = None
+    cache_status: str | None = None
+
+    def as_of_ns(self, unknown_cache_age_s: float = 0.0) -> int:
+        """When this observation was current (see ``BookSnapshot.as_of_ns``)."""
+        age = self.cache_age_s
+        if age is None:
+            age = unknown_cache_age_s if self.provider in CACHED_SCORE_PROVIDERS else 0.0
+        return self.local_ts_ns - int(age * NS_PER_S)
