@@ -31,9 +31,13 @@ class ApplyResult:
 
 
 class MarketBookTracker:
-    def __init__(self, market_slug: str, max_staleness_s: float) -> None:
+    def __init__(
+        self, market_slug: str, max_staleness_s: float, unknown_cache_age_s: float = 0.0
+    ) -> None:
         self.market_slug = market_slug
         self.max_staleness_ns = int(max_staleness_s * NS_PER_S)
+        self.unknown_cache_age_s = unknown_cache_age_s
+        self.as_of_ns: int | None = None
         self.sync = BookSync.UNSYNCED
         self.view: OrderBookView | None = None
         self.snapshot: BookSnapshot | None = None
@@ -47,6 +51,7 @@ class MarketBookTracker:
     def apply(self, snap: BookSnapshot) -> ApplyResult:
         if snap.market_slug != self.market_slug:
             return ApplyResult(False, "wrong_market")
+        as_of = snap.as_of_ns(self.unknown_cache_age_s)
         if (
             self.last_transact_ns is not None
             and snap.transact_time_ns is not None
@@ -61,10 +66,16 @@ class MarketBookTracker:
             and snap.asks == self.snapshot.asks
             and snap.state == self.snapshot.state
         ):
-            # Same book re-delivered: confirms it is still current.
+            # Same book re-delivered: confirms it was still current as of this response.
             self.duplicates += 1
             self.last_receipt_ns = snap.local_ts_ns
+            self.as_of_ns = max(as_of, self.as_of_ns or as_of)
+            self.sync = BookSync.SYNCED if snap.state == MarketState.OPEN else BookSync.NOT_OPEN
             return ApplyResult(True, "duplicate_refresh")
+        if self.as_of_ns is not None and as_of < self.as_of_ns:
+            # Different cache nodes can answer out of order: never step back to older data.
+            self.out_of_order += 1
+            return ApplyResult(False, "out_of_order")
         try:
             view = snap.view()
             view.validate()
@@ -72,11 +83,13 @@ class MarketBookTracker:
             self.invalid += 1
             self.sync = BookSync.INVALID
             self.view = None
+            self.snapshot = None  # a re-delivered valid book must be applied in full
             return ApplyResult(False, f"invalid:{exc}")
         self.view = view
         self.snapshot = snap
         self.market_state = snap.state
         self.last_receipt_ns = snap.local_ts_ns
+        self.as_of_ns = as_of
         if snap.transact_time_ns is not None:
             self.last_transact_ns = snap.transact_time_ns
         self.sync = BookSync.SYNCED if snap.state == MarketState.OPEN else BookSync.NOT_OPEN
@@ -87,7 +100,8 @@ class MarketBookTracker:
         self.sync = BookSync.UNSYNCED
 
     def age_ns(self, now_ns: int) -> int | None:
-        return None if self.last_receipt_ns is None else now_ns - self.last_receipt_ns
+        """Age of the data itself, including any time it spent in a cache."""
+        return None if self.as_of_ns is None else now_ns - self.as_of_ns
 
     def tradeable(self, now_ns: int) -> tuple[bool, str]:
         if self.sync != BookSync.SYNCED or self.view is None:

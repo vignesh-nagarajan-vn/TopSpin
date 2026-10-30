@@ -97,7 +97,9 @@ class MatchContext:
     model_error: str | None = None
     oriented: OrientedScore | None = None
     estimate: ProbEstimate | None = None
-    last_score_ts: int | None = None
+    last_score_ts: int | None = None  # when the newest score data was current, not its receipt
+    last_source_ts: int | None = None
+    pending_as_of: int | None = None
     pending_event: TennisEvent | None = None
     pending_deadline: int | None = None
     pending_attempts: int = 0
@@ -152,6 +154,7 @@ class TradingEngine:
                 fee_model_for=self._fee_model_for,
                 market_for=self.markets.get,
                 max_book_staleness_s=cfg.feeds.max_book_staleness_s,
+                unknown_cache_age_s=cfg.feeds.unknown_cache_age_s,
                 sink=self._broker_event,
             )
         self._decision_seq = 0
@@ -249,7 +252,9 @@ class TradingEngine:
                 return  # set-winner trading is disabled in v1 (no verified mapping yet)
             ctx = MatchContext(
                 market=mi,
-                tracker=MarketBookTracker(mi.slug, self.cfg.feeds.max_book_staleness_s),
+                tracker=MarketBookTracker(
+                    mi.slug, self.cfg.feeds.max_book_staleness_s, self.cfg.feeds.unknown_cache_age_s
+                ),
                 fee_model=self._fee_model_for(mi.slug),
             )
             self.contexts[mi.match_key] = ctx
@@ -304,7 +309,7 @@ class TradingEngine:
             self.breakers.block_match(ctx.key, "book_not_open")
         else:
             self.breakers.unblock_match(ctx.key, "book_not_open")
-        if res.applied and ctx.status == MatchStatus.NOT_STARTED and res.reason == "applied":
+        if res.applied and ctx.status == MatchStatus.NOT_STARTED:
             self._consider_anchor_candidate(ctx, snap)
         if self.mode == "record":
             return
@@ -353,8 +358,23 @@ class TradingEngine:
         ctx = self.contexts.get(snap.match_key)
         if ctx is None:
             return
-        ctx.last_score_ts = snap.local_ts_ns
-        self.breakers.unblock_match(ctx.key, "score_stale")
+        if (
+            ctx.last_source_ts is not None
+            and snap.source_ts_ns is not None
+            and snap.source_ts_ns < ctx.last_source_ts
+        ):
+            # Different cache nodes can answer out of order. An older provider state is not
+            # a score correction; a real correction carries a newer timestamp.
+            self._emit("score_out_of_order", {"match_key": ctx.key, "raw": snap.raw_score})
+            return
+        if snap.source_ts_ns is not None:
+            ctx.last_source_ts = snap.source_ts_ns
+        as_of = snap.as_of_ns(self.cfg.feeds.unknown_cache_age_s)
+        ctx.last_score_ts = max(as_of, ctx.last_score_ts or as_of)
+        if self.now_ns - ctx.last_score_ts > self.cfg.feeds.max_score_staleness_s * NS_PER_S:
+            self.breakers.block_match(ctx.key, "score_stale")
+        else:
+            self.breakers.unblock_match(ctx.key, "score_stale")
         prev_status = ctx.status
 
         if ctx.link is None:
@@ -393,7 +413,7 @@ class TradingEngine:
         if snap.status == MatchStatus.NOT_STARTED:
             if prev_status in (MatchStatus.UNKNOWN, MatchStatus.NOT_STARTED):
                 ctx.seen_not_started = True
-                ctx.confirmed_until_ns = snap.local_ts_ns
+                ctx.confirmed_until_ns = max(as_of, ctx.confirmed_until_ns or as_of)
         elif prev_status == MatchStatus.UNKNOWN and not ctx.seen_not_started:
             ctx.first_seen_in_play = True
         if (
@@ -444,9 +464,10 @@ class TradingEngine:
             if ev.kind in enabled:
                 if ev.actionable:
                     ctx.pending_event = ev
-                    ctx.pending_deadline = self.now_ns + int(
-                        self.cfg.strategy.entry_window_s * NS_PER_S
-                    )
+                    # The window runs from when the data was current, not when it reached
+                    # us: an event that sat in a cache may already be too old to act on.
+                    ctx.pending_as_of = as_of
+                    ctx.pending_deadline = as_of + int(self.cfg.strategy.entry_window_s * NS_PER_S)
                     ctx.pending_attempts = 0
                 else:
                     if oriented.match_over or oriented.status != MatchStatus.LIVE:
@@ -518,7 +539,12 @@ class TradingEngine:
         ):
             return
         ctx.candidates.append(
-            Anchor(prob=mid, half_spread=spread / 2, depth=depth, book_ts_ns=snap.local_ts_ns)
+            Anchor(
+                prob=mid,
+                half_spread=spread / 2,
+                depth=depth,
+                book_ts_ns=snap.as_of_ns(self.cfg.feeds.unknown_cache_age_s),
+            )
         )
         ctx.candidates = ctx.candidates[-50:]
 
@@ -696,7 +722,11 @@ class TradingEngine:
                 Action.SKIP,
                 Reason.EVENT_WINDOW_EXPIRED,
                 trigger=ev.dedupe_key,
-                numbers={"attempts": ctx.pending_attempts},
+                numbers={
+                    "attempts": ctx.pending_attempts,
+                    "event_data_age_s": (self.now_ns - (ctx.pending_as_of or self.now_ns))
+                    / NS_PER_S,
+                },
             )
 
     def _try_entry(self, ctx: MatchContext) -> None:
