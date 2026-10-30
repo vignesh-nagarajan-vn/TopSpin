@@ -311,3 +311,72 @@ def test_feed_delay_counts_each_provider_update_once():
     assert lat["score_feed_delay_ms"]["n"] == 1 and lat["score_feed_delay_ms"][
         "p50"
     ] == pytest.approx(1000.0)
+
+
+def _with_cache_age(records, age):
+    """Mark every book and score as served from a cache at ``age`` seconds."""
+    out = []
+    for r in records:
+        if r["kind"] in ("book", "score"):
+            r = {**r, "payload": {**r["payload"], "cache_age_s": age}}
+        out.append(r)
+    return out
+
+
+def test_old_cached_data_blocks_entries_that_fresh_data_allows():
+    base = scenario_lagging_market()
+    assert decisions(replay_records(cfg(), _with_cache_age(base, 1.0), CLS), "BUY")
+    stale = replay_records(cfg(), _with_cache_age(base, 16.0), CLS)
+    assert not decisions(stale, "BUY") and not stale.journal.of_kind("order_submitted")
+    reasons = {d["reason"] for d in decisions(stale, "SKIP")}
+    assert "event_window_expired" in reasons
+    expired = next(d for d in decisions(stale, "SKIP") if d["reason"] == "event_window_expired")
+    assert expired["numbers"]["event_data_age_s"] >= 15
+
+
+def test_recordings_without_cache_ages_fail_closed_on_the_public_route():
+    """Journals recorded before cache ages were captured must not look fresh."""
+    recs = []
+    for r in scenario_lagging_market():
+        if r["kind"] == "book":
+            r = {**r, "payload": {**r["payload"], "source": "rest"}}
+        elif r["kind"] == "score":
+            r = {**r, "payload": {**r["payload"], "provider": "polymarket_us_event_state"}}
+        recs.append(r)
+    res = replay_records(cfg(), recs, CLS)
+    assert not decisions(res, "BUY") and not res.journal.of_kind("order_submitted")
+    # The same inputs with the assumption disabled (research only) still reach an entry.
+    open_ = replay_records(cfg(feeds={"unknown_cache_age_s": 0}), recs, CLS)
+    assert decisions(open_, "BUY")
+
+
+def test_older_provider_state_from_a_cache_node_is_not_a_correction():
+    recs = scenario_lagging_market()
+    i, r = next(
+        (i, r)
+        for i, r in enumerate(recs)
+        if r["kind"] == "score" and r["payload"]["sets"] == [{"100": 2, "200": 0}]
+    )
+    t = r["local_ts_ns"] + S // 10
+    stale = score(t, MatchStatus.LIVE, [(1, 0)], (0, 0), "B").model_dump(mode="json")
+    stale["source_ts_ns"] = r["payload"]["source_ts_ns"] - 30 * S
+    res = replay_records(cfg(), [*recs[: i + 1], rec("score", stale, t), *recs[i + 1 :]], CLS)
+    kinds = [e["payload"]["kind"] for e in res.journal.of_kind("tennis_event")]
+    assert "correction" not in kinds and res.journal.of_kind("score_out_of_order")
+    assert decisions(res, "BUY")
+
+
+def test_unchanged_prematch_book_keeps_the_anchor_fresh():
+    """A quiet market re-delivers the same book; the anchor must not go stale because of it."""
+    recs = scenario_lagging_market()
+    live_t = next(
+        r["local_ts_ns"] for r in recs if r["kind"] == "score" and r["payload"]["status"] == "live"
+    )
+    t = live_t - 35 * S
+    # Same content and transact time as the last prematch book, delivered again later.
+    same = rec("book", {**book(T0 + 4 * S, "0.59", "0.60"), "local_ts_ns": t}, t)
+    ns = score(t + S, MatchStatus.NOT_STARTED, None, None, None).model_dump(mode="json")
+    merged = sorted([*recs, same, rec("score", ns, t + S)], key=lambda r: r["local_ts_ns"])
+    res = replay_records(cfg(), merged, CLS)
+    anchor = res.journal.of_kind("anchor")[0]["payload"]
+    assert anchor["error"] is None and anchor["book_ts_ns"] == t
