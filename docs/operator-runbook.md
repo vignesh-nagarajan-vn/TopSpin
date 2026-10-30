@@ -20,6 +20,12 @@ python -m topspin.cli replay data/journal          # regenerate decisions from i
 python -m topspin.cli replay data/journal --taker-delay-ms 1500 --fill-fraction 0.25 --slippage-ticks 1
 ```
 
+**Keep the recording machine awake.** On 2026-10-30 a laptop entering Modern Standby suspended
+the recorder for most of a day, and every prematch anchor was lost. Run long sessions on an
+always-on machine, or plugged in with sleep disabled for the session. The recorder journals a
+`suspension_detected` health record after any silence longer than 5 s. The report lists the
+largest recording gaps.
+
 Journals are in `data/journal/*.jsonl` (append-only); reports are in `reports/`. Re-index into
 SQLite for ad-hoc queries with `index-db data/journal`.
 

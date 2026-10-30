@@ -5,9 +5,10 @@ A research-first, risk-gated engine for trading ATP and WTA match-winner markets
 fees, spreads, latency, slippage, model error and missed fills. A correct answer of "no edge" is
 an acceptable outcome.
 
-> **Status (2026-10-30):** record, paper and replay modes are built, tested (182 tests) and run
-> against the live public API. **No edge has been demonstrated.** Live order routing is
-> intentionally not enabled. See [research findings](docs/research-findings.md).
+> **Status (2026-10-30):** record, paper and replay modes are built, tested (185 tests) and run
+> against the live public API. **No edge has been demonstrated.** The first real session found
+> the venue's score feed about 15 s behind the provider, with the market repricing first. Live
+> order routing is intentionally not enabled. See [research findings](docs/research-findings.md).
 
 ## What it does
 
@@ -38,7 +39,7 @@ python -m topspin.cli record --duration 3600
 python -m topspin.cli replay data/journal               # deterministic replay + report
 python -m topspin.cli report data/journal --source paper
 python -m topspin.cli price 0.62 --games 2-0 --server A # price a score state
-pytest                                                  # 182 tests, offline
+pytest                                                  # 185 tests, offline
 ```
 
 All commands: `python -m topspin.cli --help`. Operations, the promotion gates, the halt
