@@ -1,0 +1,49 @@
+# Tournament classification -> scoring ruleset.
+# Matching is on the provider's tournament name (lowercased, accents stripped).
+# A match whose tournament matches no rule, or matches an exclusion, is never traded.
+version: "2026.1"
+
+# Checked first. Any match -> excluded from v1 (Challenger, ITF, WTA 125, team events,
+# qualifying, doubles, exhibitions, non-standard formats).
+exclude_patterns:
+  - "challenger"
+  - "\\bitf\\b"
+  - "\\b125k?\\b"
+  - "doubles"
+  - "mixed"
+  - "qualif"
+  - "davis cup"
+  - "billie jean king"
+  - "united cup"
+  - "laver cup"
+  - "hopman"
+  - "next gen"
+  - "exhibition"
+  - "\\butr\\b"
+  - "six kings"
+
+# Rounds to exclude even at an allowed tournament (main draw only).
+exclude_round_patterns:
+  - "qualif"
+
+# Grand Slams: deciding-set 10-point tiebreak; men best of five.
+grand_slam_patterns:
+  - "australian open"
+  - "roland garros"
+  - "french open"
+  - "wimbledon"
+  - "us open"
+
+# Tour-level events must start with the tour prefix and say singles.
+tour_patterns:
+  ATP: "^atp\\b.*\\bsingles\\b"
+  WTA: "^wta\\b.*\\bsingles\\b"
+
+rulesets:
+  ATP: tour_bo3_tb7
+  WTA: tour_bo3_tb7
+  ATP_SLAM: slam_men_bo5_final_tb10
+  WTA_SLAM: slam_women_bo3_final_tb10
+
+# Optional allow-list. Empty = all tour-level events that pass the rules above.
+allowed_tournaments: []
