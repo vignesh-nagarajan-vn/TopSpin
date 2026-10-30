@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 from collections import Counter
+from itertools import pairwise
 from pathlib import Path
 from typing import Any
 
@@ -17,6 +18,13 @@ from topspin.analytics.pnl import execution_summary, model_quality, pnl_summary
 GATE3_MIN_MATCHES = 50
 GATE4_MIN_MATCHES = 30
 GATE4_MIN_TOURNAMENTS = 3
+
+
+def _largest_gaps(records: list[dict[str, Any]], top: int = 5) -> list[float]:
+    """Longest silences between consecutive records (recording outages)."""
+    ts = [r["local_ts_ns"] for r in records]
+    gaps = sorted(((b - a) / 1e9 for a, b in pairwise(ts)), reverse=True)
+    return [round(g, 1) for g in gaps[:top]]
 
 
 def data_quality(records: list[dict[str, Any]]) -> dict[str, Any]:
@@ -69,6 +77,12 @@ def data_quality(records: list[dict[str, Any]]) -> dict[str, Any]:
             if r["kind"] == "calibration"
         ),
         "health_errors": sum(1 for r in records if r["kind"] == "health"),
+        "suspensions": [
+            r["payload"].get("gap_s")
+            for r in records
+            if r["kind"] == "health" and r["payload"].get("event") == "suspension_detected"
+        ],
+        "largest_recording_gaps_s": _largest_gaps(records),
     }
 
 
@@ -179,6 +193,8 @@ def render_markdown(report: dict[str, Any]) -> str:
         f"* Tennis events: {dq['tennis_events']}",
         f"* Anchors: {dict(dq['anchors'])}; calibrations: {dict(dq['calibrations'])}",
         f"* Tournaments: {dq['tournaments_seen']}",
+        f"* Largest recording gaps (s): {dq['largest_recording_gaps_s']}; "
+        f"detected suspensions: {dq['suspensions']}",
         "",
         "## Promotion gates",
         "",

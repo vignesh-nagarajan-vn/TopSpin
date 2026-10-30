@@ -206,8 +206,13 @@ class Runner:
             await _sleep(stop, 60)
 
     async def tick_loop(self, stop: asyncio.Event) -> None:
+        last = now_ns()
         while not stop.is_set():
-            await self._put("tick", {}, now_ns())
+            ts = now_ns()
+            for kind, payload in suspension_records(last, ts):
+                await self._put(kind, payload, ts)
+            last = ts
+            await self._put("tick", {}, ts)
             await _sleep(stop, 1.0)
 
     # ---------------------------------------------------------------- consumer
@@ -290,6 +295,25 @@ class Runner:
             await self.client.aclose()
         self.stats.tracked = set(self.tracked)
         return self.stats
+
+
+SUSPENSION_GAP_S = 5.0
+
+
+def suspension_records(prev_tick_ns: int, now_tick_ns: int) -> list[tuple[str, dict[str, Any]]]:
+    """Records to journal when the 1 s tick loop was silent for too long, which means the
+    process or machine was suspended (e.g. laptop sleep). Every book is then distrusted
+    until a fresh snapshot arrives, and the gap is visible in the data-quality report."""
+    gap_s = (now_tick_ns - prev_tick_ns) / NS_PER_S
+    if gap_s <= SUSPENSION_GAP_S:
+        return []
+    return [
+        (
+            "health",
+            {"component": "runner", "event": "suspension_detected", "gap_s": round(gap_s, 1)},
+        ),
+        ("feed_gap", {"market_slug": "", "reason": f"process_suspended_{gap_s:.0f}s"}),
+    ]
 
 
 async def _sleep(stop: asyncio.Event, seconds: float) -> None:

@@ -22,3 +22,12 @@ def test_bad_or_missing_timestamps():
 def test_round_trip_iso():
     ns = parse_ts_ns("2026-10-30T04:45:49.997062510Z")
     assert ns_to_iso(ns) == "2026-10-30T04:45:49.997062510Z"
+
+
+def test_suspension_detection_records():
+    from topspin.orchestration.runner import suspension_records
+
+    assert suspension_records(0, 2 * NS_PER_S) == []
+    recs = suspension_records(0, 600 * NS_PER_S)
+    kinds = [k for k, _ in recs]
+    assert kinds == ["health", "feed_gap"] and recs[1][1]["market_slug"] == ""
