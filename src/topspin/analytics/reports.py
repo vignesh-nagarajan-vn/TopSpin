@@ -12,7 +12,7 @@ from itertools import pairwise
 from pathlib import Path
 from typing import Any
 
-from topspin.analytics.latency import latency_study
+from topspin.analytics.latency import MAX_CACHED_BOOK_SHARE, latency_study
 from topspin.analytics.pnl import execution_summary, model_quality, pnl_summary
 
 GATE3_MIN_MATCHES = 50
@@ -68,6 +68,7 @@ def data_quality(records: list[dict[str, Any]]) -> dict[str, Any]:
         "tournaments_seen": sorted(tournaments),
         "tennis_events": dict(events),
         "score_invalid": sum(1 for r in records if r["kind"] == "score_invalid"),
+        "score_out_of_order": sum(1 for r in records if r["kind"] == "score_out_of_order"),
         "anchors": Counter(
             (r["payload"].get("error") or "ok") for r in records if r["kind"] == "anchor"
         ),
@@ -99,8 +100,9 @@ def gate_evidence(records: list[dict[str, Any]], bankroll: float, *, source: str
         "latency_measured": lat["score_feed_delay_ms"]["n"] > 0,
         "breaks_and_sets_detected": dq["tennis_events"].get("break", 0) > 0
         and dq["tennis_events"].get("set_complete", 0) > 0,
+        "uncached_market_data": lat["cached_book_share"] <= MAX_CACHED_BOOK_SHARE,
         "latency_verdict_not_negative": not lat["verdict"].startswith(
-            ("not_viable", "insufficient_data")
+            ("not_viable", "insufficient_data", "invalid_source")
         ),
     }
     mc = pnl["match_clustered_mean"]
@@ -181,7 +183,10 @@ def render_markdown(report: dict[str, Any]) -> str:
         "",
         f"* Verdict: **{lat['verdict']}**",
         f"* Break/set events: {lat['break_and_set']}",
-        f"* Score feed delay vs provider timestamp (ms): {lat['score_feed_delay_ms']}",
+        f"* Share of books from the cached public route: {lat['cached_book_share']:.0%}; "
+        f"reported cache age (s): {lat['book_cache_age_s']}",
+        f"* Score feed delay vs provider timestamp (ms): {lat['score_feed_delay_ms']}; "
+        f"net of cache age: {lat['score_feed_delay_net_of_cache_ms']}",
         f"* Book request RTT (ms): {lat['book_request_rtt_ms']}",
         "",
         "## Data quality",

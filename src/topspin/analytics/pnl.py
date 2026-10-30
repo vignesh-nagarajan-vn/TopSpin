@@ -147,18 +147,24 @@ class BookIndex:
 
     def __init__(self, records: list[dict[str, Any]], max_age_s: float = 10.0) -> None:
         self.max_age_ns = int(max_age_s * NS_PER_S)
-        self.ts: dict[str, list[int]] = defaultdict(list)
-        self.rows: dict[str, list[tuple[float | None, float | None]]] = defaultdict(list)
+        raw: dict[str, list[tuple[int, float | None, float | None]]] = defaultdict(list)
         for r in records:
             if r["kind"] != "book":
                 continue
             p = r["payload"]
             bids = [float(b[0]) for b in p.get("bids") or []]
             asks = [float(a[0]) for a in p.get("asks") or []]
-            self.ts[p["market_slug"]].append(int(r["local_ts_ns"]))
-            self.rows[p["market_slug"]].append(
-                (max(bids) if bids else None, min(asks) if asks else None)
+            # Index by when the data was current. Cache nodes can answer out of order.
+            t = int(r["local_ts_ns"]) - int((p.get("cache_age_s") or 0.0) * NS_PER_S)
+            raw[p["market_slug"]].append(
+                (t, max(bids) if bids else None, min(asks) if asks else None)
             )
+        self.ts: dict[str, list[int]] = {}
+        self.rows: dict[str, list[tuple[float | None, float | None]]] = {}
+        for slug, rows in raw.items():
+            rows.sort(key=lambda x: x[0])
+            self.ts[slug] = [x[0] for x in rows]
+            self.rows[slug] = [(x[1], x[2]) for x in rows]
 
     def at(self, slug: str, t_ns: int) -> tuple[float | None, float | None]:
         ts = self.ts.get(slug)

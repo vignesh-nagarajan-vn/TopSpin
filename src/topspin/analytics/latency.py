@@ -9,6 +9,11 @@ i.e. the fraction of the total market move over the window that had already happ
 before we knew about the event. Midpoints are fine here: this is measurement, not
 execution. If the median pre_share for breaks/sets is high, any strategy relying on
 reacting to our score feed is trading against already-updated prices and is rejected.
+
+The study needs data fresher than the moves it orders. The public REST route is cached by
+Cloudflare for up to 30 s (scores and books through separate caches), so a recording made
+over it gets the verdict ``invalid_source`` whatever the numbers look like. The figures are
+still reported, as a description of what that route shows.
 """
 
 from __future__ import annotations
@@ -22,6 +27,7 @@ from topspin.timeutil import NS_PER_S
 OFFSETS_S = (-60, -30, -10, -5, 0, 5, 10, 30, 60)
 MIN_MOVE = 0.01
 MIN_EVENTS_FOR_VERDICT = 30
+MAX_CACHED_BOOK_SHARE = 0.5
 
 
 def latency_study(records: list[dict[str, Any]], window_s: int = 60) -> dict[str, Any]:
@@ -34,6 +40,7 @@ def latency_study(records: list[dict[str, Any]], window_s: int = 60) -> dict[str
     # Provider ``updatedAt`` marks when the state last *changed*; later polls of the same
     # state are not delays. Measure only the first receipt of each distinct live update.
     feed_delays: list[float] = []
+    feed_delays_net_of_cache: list[float] = []
     seen: set[tuple[str, int]] = set()
     for r in records:
         p = r["payload"]
@@ -42,7 +49,10 @@ def latency_study(records: list[dict[str, Any]], window_s: int = 60) -> dict[str
         key = (p["match_key"], int(r["source_ts_ns"]))
         if key not in seen:
             seen.add(key)
-            feed_delays.append((r["local_ts_ns"] - r["source_ts_ns"]) / 1e6)
+            delay_ms = (r["local_ts_ns"] - r["source_ts_ns"]) / 1e6
+            feed_delays.append(delay_ms)
+            if p.get("cache_age_s") is not None:
+                feed_delays_net_of_cache.append(delay_ms - p["cache_age_s"] * 1000)
     rtts = [
         r["payload"]["request_latency_ms"]
         for r in records
@@ -84,7 +94,12 @@ def latency_study(records: list[dict[str, Any]], window_s: int = 60) -> dict[str
         rows.append(row)
 
     def summarize(kind_filter: tuple[str, ...]) -> dict[str, Any]:
-        sel = [x for x in rows if x["kind"] in kind_filter]
+        # A break that also ends a set is one market move, not two.
+        moves: dict[tuple[str, int], dict[str, Any]] = {}
+        for x in rows:
+            if x["kind"] in kind_filter:
+                moves.setdefault((x["match_key"], x["ts"] // NS_PER_S), x)
+        sel = list(moves.values())
         shares = [x["pre_share"] for x in sel if "pre_share" in x]
         post = [x["post_move_signed"] for x in sel if "post_move_signed" in x]
         return {
@@ -99,7 +114,15 @@ def latency_study(records: list[dict[str, Any]], window_s: int = 60) -> dict[str
 
     trig = summarize(("break", "set_complete"))
     n = trig["with_material_move"]
-    if n < MIN_EVENTS_FOR_VERDICT:
+    books = [r["payload"] for r in records if r["kind"] == "book"]
+    cached = sum(1 for b in books if b.get("source", "rest") == "rest")
+    cached_share = cached / len(books) if books else 0.0
+    if cached_share > MAX_CACHED_BOOK_SHARE:
+        verdict = (
+            "invalid_source: public REST data is cached for up to 30 s, so the order of score "
+            "and market moves cannot be measured"
+        )
+    elif n < MIN_EVENTS_FOR_VERDICT:
         verdict = f"insufficient_data ({n} break/set events with material moves; need {MIN_EVENTS_FOR_VERDICT})"
     elif (trig["median_pre_share"] or 0) >= 0.8:
         verdict = "not_viable: the market usually reprices before our score feed delivers the event"
@@ -109,7 +132,12 @@ def latency_study(records: list[dict[str, Any]], window_s: int = 60) -> dict[str
         verdict = "inconclusive: little exploitable post-receipt drift"
     return {
         "window_s": window_s,
+        "cached_book_share": cached_share,
+        "book_cache_age_s": _dist(
+            [b["cache_age_s"] for b in books if b.get("cache_age_s") is not None]
+        ),
         "score_feed_delay_ms": _dist(feed_delays),
+        "score_feed_delay_net_of_cache_ms": _dist(feed_delays_net_of_cache),
         "book_request_rtt_ms": _dist(book_rtts),
         "book_requests_spanning_suspension": len(rtts) - len(book_rtts),
         "break_and_set": trig,
