@@ -1,0 +1,106 @@
+"""Local order-book state with explicit synchronization status.
+
+Polymarket US delivers *complete* top-of-book snapshots (REST ``/book`` and the market
+WebSocket ``MARKET_DATA`` stream alike), not incremental deltas, so a "rebuild" after a gap
+is simply the next valid snapshot. The tracker still guards against out-of-order,
+duplicate, crossed, stale and non-open books, and never reports a book as tradeable unless
+it is synchronized and fresh.
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from enum import StrEnum
+from typing import Protocol
+
+from topspin.models.market import BookSnapshot, InvalidBookError, MarketState, OrderBookView
+from topspin.timeutil import NS_PER_S
+
+
+class BookSync(StrEnum):
+    UNSYNCED = "unsynced"  # no valid snapshot yet, or invalidated by a feed gap
+    SYNCED = "synced"
+    INVALID = "invalid"  # last snapshot failed validation (e.g. crossed)
+    NOT_OPEN = "not_open"  # market suspended / halted / expired / pre-open
+
+
+@dataclass(frozen=True, slots=True)
+class ApplyResult:
+    applied: bool
+    reason: str
+
+
+class MarketBookTracker:
+    def __init__(self, market_slug: str, max_staleness_s: float) -> None:
+        self.market_slug = market_slug
+        self.max_staleness_ns = int(max_staleness_s * NS_PER_S)
+        self.sync = BookSync.UNSYNCED
+        self.view: OrderBookView | None = None
+        self.snapshot: BookSnapshot | None = None
+        self.market_state = MarketState.UNKNOWN
+        self.last_receipt_ns: int | None = None
+        self.last_transact_ns: int | None = None
+        self.duplicates = 0
+        self.out_of_order = 0
+        self.invalid = 0
+
+    def apply(self, snap: BookSnapshot) -> ApplyResult:
+        if snap.market_slug != self.market_slug:
+            return ApplyResult(False, "wrong_market")
+        if (
+            self.last_transact_ns is not None
+            and snap.transact_time_ns is not None
+            and snap.transact_time_ns < self.last_transact_ns
+        ):
+            self.out_of_order += 1
+            return ApplyResult(False, "out_of_order")
+        if (
+            self.snapshot is not None
+            and snap.transact_time_ns == self.last_transact_ns
+            and snap.bids == self.snapshot.bids
+            and snap.asks == self.snapshot.asks
+            and snap.state == self.snapshot.state
+        ):
+            # Same book re-delivered: confirms it is still current.
+            self.duplicates += 1
+            self.last_receipt_ns = snap.local_ts_ns
+            return ApplyResult(True, "duplicate_refresh")
+        try:
+            view = snap.view()
+            view.validate()
+        except (InvalidBookError, ArithmeticError, ValueError) as exc:
+            self.invalid += 1
+            self.sync = BookSync.INVALID
+            self.view = None
+            return ApplyResult(False, f"invalid:{exc}")
+        self.view = view
+        self.snapshot = snap
+        self.market_state = snap.state
+        self.last_receipt_ns = snap.local_ts_ns
+        if snap.transact_time_ns is not None:
+            self.last_transact_ns = snap.transact_time_ns
+        self.sync = BookSync.SYNCED if snap.state == MarketState.OPEN else BookSync.NOT_OPEN
+        return ApplyResult(True, "applied")
+
+    def mark_gap(self, reason: str = "feed_gap") -> None:
+        """Called on disconnect / failed poll: distrust the book until a fresh snapshot."""
+        self.sync = BookSync.UNSYNCED
+
+    def age_ns(self, now_ns: int) -> int | None:
+        return None if self.last_receipt_ns is None else now_ns - self.last_receipt_ns
+
+    def tradeable(self, now_ns: int) -> tuple[bool, str]:
+        if self.sync != BookSync.SYNCED or self.view is None:
+            return False, f"book_{self.sync.value}"
+        age = self.age_ns(now_ns)
+        if age is None or age > self.max_staleness_ns:
+            return False, "book_stale"
+        if not self.view.two_sided:
+            return False, "book_one_sided"
+        return True, "ok"
+
+
+class MarketDataSource(Protocol):
+    """Anything that yields full book snapshots (REST poller, WebSocket, replay)."""
+
+    async def next_snapshot(self) -> BookSnapshot: ...
