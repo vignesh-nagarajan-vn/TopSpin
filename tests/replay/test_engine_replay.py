@@ -288,3 +288,26 @@ def test_sensitivity_grid_degrades_with_harsher_execution():
     )
     fast, slow = rows
     assert fast["net_pnl"] > 0 and slow["net_pnl"] <= fast["net_pnl"]
+
+
+def test_latency_study_never_bridges_recording_gaps():
+    from topspin.analytics.pnl import BookIndex
+
+    recs = [rec("book", book(T0, "0.40", "0.42"), T0)]
+    idx = BookIndex(recs, max_age_s=10)
+    assert idx.mid("aec-atp-synthetic-a-b", T0 + 5 * S) == pytest.approx(0.41)
+    assert idx.mid("aec-atp-synthetic-a-b", T0 + 3600 * S) is None
+
+
+def test_feed_delay_counts_each_provider_update_once():
+    snaps = []
+    for k in range(5):  # the same provider state polled five times
+        s_ = score(T0 + k * S, MatchStatus.LIVE, [(1, 0)], (0, 0), "B")
+        payload = s_.model_dump(mode="json")
+        snaps.append(
+            {"kind": "score", "payload": payload, "local_ts_ns": T0 + k * S, "source_ts_ns": T0 - S}
+        )
+    lat = latency_study(snaps)
+    assert lat["score_feed_delay_ms"]["n"] == 1 and lat["score_feed_delay_ms"][
+        "p50"
+    ] == pytest.approx(1000.0)

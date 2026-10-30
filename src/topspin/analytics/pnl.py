@@ -142,9 +142,11 @@ def cluster_bootstrap_mean(
 
 class BookIndex:
     """Per-market time index of book records for markouts (no lookahead in decisions:
-    used only for after-the-fact evaluation)."""
+    used only for after-the-fact evaluation). A book older than ``max_age_s`` at the
+    query time counts as missing, so recording gaps are never bridged with stale prices."""
 
-    def __init__(self, records: list[dict[str, Any]]) -> None:
+    def __init__(self, records: list[dict[str, Any]], max_age_s: float = 10.0) -> None:
+        self.max_age_ns = int(max_age_s * NS_PER_S)
         self.ts: dict[str, list[int]] = defaultdict(list)
         self.rows: dict[str, list[tuple[float | None, float | None]]] = defaultdict(list)
         for r in records:
@@ -163,7 +165,9 @@ class BookIndex:
         if not ts:
             return None, None
         i = bisect_right(ts, t_ns) - 1
-        return self.rows[slug][i] if i >= 0 else (None, None)
+        if i < 0 or t_ns - ts[i] > self.max_age_ns:
+            return None, None
+        return self.rows[slug][i]
 
     def mid(self, slug: str, t_ns: int) -> float | None:
         b, a = self.at(slug, t_ns)

@@ -31,16 +31,25 @@ def latency_study(records: list[dict[str, Any]], window_s: int = 60) -> dict[str
         if r["kind"] == "market_info":
             match_to_slug.setdefault(r["payload"]["event_slug"], r["payload"]["slug"])
     # Score feed delay vs the provider's own updatedAt stamp.
-    feed_delays = [
-        (r["local_ts_ns"] - r["source_ts_ns"]) / 1e6
-        for r in records
-        if r["kind"] == "score" and r.get("source_ts_ns")
-    ]
-    book_rtts = [
+    # Provider ``updatedAt`` marks when the state last *changed*; later polls of the same
+    # state are not delays. Measure only the first receipt of each distinct live update.
+    feed_delays: list[float] = []
+    seen: set[tuple[str, int]] = set()
+    for r in records:
+        p = r["payload"]
+        if r["kind"] != "score" or not r.get("source_ts_ns") or p.get("status") != "live":
+            continue
+        key = (p["match_key"], int(r["source_ts_ns"]))
+        if key not in seen:
+            seen.add(key)
+            feed_delays.append((r["local_ts_ns"] - r["source_ts_ns"]) / 1e6)
+    rtts = [
         r["payload"]["request_latency_ms"]
         for r in records
         if r["kind"] == "book" and r["payload"].get("request_latency_ms") is not None
     ]
+    # Requests spanning a machine suspension are not network latency.
+    book_rtts = [x for x in rtts if x <= 30_000]
 
     rows: list[dict[str, Any]] = []
     for r in records:
@@ -102,6 +111,7 @@ def latency_study(records: list[dict[str, Any]], window_s: int = 60) -> dict[str
         "window_s": window_s,
         "score_feed_delay_ms": _dist(feed_delays),
         "book_request_rtt_ms": _dist(book_rtts),
+        "book_requests_spanning_suspension": len(rtts) - len(book_rtts),
         "break_and_set": trig,
         "holds": summarize(("hold",)),
         "verdict": verdict,
