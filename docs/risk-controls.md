@@ -42,6 +42,11 @@ applied for completed matches only.
 No control relies on a stop-loss being executable: nothing is sold into a suspended or
 untradeable book.
 
+The stale-data breakers measure **data age**, including time in the CDN cache on public market
+data, so a book received just now but cached for 29 s is stale. Older data from another cache node
+is dropped rather than treated as a score correction or a price change. On the public route most
+responses are too old to act on, so entries are rare by design.
+
 ## Persistent daily-loss latch
 
 * The trigger is conservative equity (cash plus liquidation value of positions at executable

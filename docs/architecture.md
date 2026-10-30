@@ -41,8 +41,11 @@ in a fresh interpreter.
 * Replay feeds recorded *inputs* (`market_info`, `book`, `trade`, `score`, `feed_gap`,
   `settlement`, `tick`) back through the same engine and regenerates every decision. A SHA-256
   fingerprint of decisions, orders and fills checks determinism.
-* Fill simulation may look at the first book *after* an order's arrival (the exchange's view of
-  that moment). Decisions never do.
+* Fill simulation may look at the first book whose data postdates an order's arrival (the
+  exchange's view of that moment). A cached response received after arrival but holding older data
+  does not count. Decisions never look ahead.
+* Each public-route response records its CDN cache age. Freshness checks, anchors, entry windows
+  and fills use "as of" time (receipt minus cache age), while ordering still follows receipt time.
 
 ## Module map
 

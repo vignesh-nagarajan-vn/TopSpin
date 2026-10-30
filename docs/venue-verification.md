@@ -13,18 +13,23 @@ probing of the **public** endpoints. No account, credentials or orders were used
 | Does the "ATP" series contain only tour-level events? | **No.** It mixes ATP Challenger events with tour events; the WTA series includes WTA 125 events. Tournament filtering is mandatory. | `eventState.tennisState.tournamentName` values such as "ATP Challenger Seoul..." |
 | Is there a public live score? | **Yes.** Tennis event payloads embed a Sportradar-derived state: `score` (`"6-3, 1-2:15-0"`), `periodScores` per competitor id, `period` (`NS`, `S1`-`S5`, `SUS`, `FT`), `eventState.tennisState.servingTeamId`, `tournamentName`, `round`, `updatedAt`. | `GET /v1/events/slug/{slug}` |
 | Is the live score available before the match? | Partly. `eventState` is `null` before play, so the tournament name is unknown prematch. Event **tags** often carry a tournament label (e.g. "Vienna", "Challenger Abidjan"), used only for prioritisation. | live payloads |
-| Can the order book be read without credentials? | **Yes.** `GET /v1/markets/{slug}/book` returns full depth with a nanosecond `transactTime`. | live probe |
-| Does the market-data WebSocket need credentials? | **Yes.** `wss://api.polymarket.us/v1/ws/markets` requires API-key signing in the handshake. No read-only key scope is documented. | websocket docs |
+| Can the order book be read without credentials? | **Yes, but cached.** `GET /v1/markets/{slug}/book` returns full depth with a nanosecond `transactTime`. | live probe |
+| Are the public endpoints real time? | **No.** Event, book and BBO responses carry `Cache-Control: public, max-age=30` and are served by Cloudflare (`cf-cache-status: HIT`, `Age` up to 29 s). Data can be up to about 30 s old however often it is polled. | response headers, 2026-10-30 |
+| Does the retail market-data WebSocket need credentials? | **Yes.** `wss://api.polymarket.us/v1/ws/markets` requires API-key signing in the handshake. The retail docs mention no read-only scope. | websocket docs |
+| Is scoped, read-only market data documented anywhere? | **Yes, on the institutional API.** The Polymarket Exchange API (`api.prod.polymarketexchange.com`, preprod available) uses Private Key JWT, streams market data over gRPC, and documents `read:marketdata`, `read:l2marketdata` and `read:instruments` scopes. It requires onboarding with Polymarket. Not tested. | trader guide, streaming docs |
 
 ## Consequences for the design
 
-* **Record and paper modes poll public REST** (`/book` about every 1 s, `/events/slug` about every 2 s per
-  match, within the documented 25 req/s per-IP limit). They never hold credentials. The
-  WebSocket path is left disabled (`feeds.use_market_websocket: false`), because enabling it would
-  put a trading-capable key in a non-trading process.
-* The implemented score feed (`polymarket_us_event_state`) comes from the venue's own payload.
-  Its latency relative to market repricing is **unknown**. The Gate 1 latency study exists to
-  measure it. A licensed low-latency provider is an interface only (`UnavailableScoreFeed`).
+* **Record and paper modes poll public REST** within the documented 25 req/s per-IP limit. They
+  never hold credentials, but the **30 s cache makes this route unsuitable for timing research or
+  realistic execution simulation.** Each response's cache age is recorded, the engine fails closed
+  on old data, and the latency study returns `invalid_source`. The venue also advises streaming
+  rather than polling market data. The WebSocket path is left disabled (`feeds.use_market_websocket: false`), because the
+  retail route would put a trading-capable key in a non-trading process.
+* The implemented score feed (`polymarket_us_event_state`) comes from the venue's own payload and
+  is subject to the same cache. Its true latency relative to market repricing is **unknown** and
+  cannot be measured on this route. A licensed low-latency provider is an interface only
+  (`UnavailableScoreFeed`).
 * Market identity uses typed fields only: `sportsMarketType`, `marketSides[].long`,
   `marketSides[].teamId`, and event `teams[].id`. Player A is the `long: true` participant
   (the YES side). Slugs are never parsed.

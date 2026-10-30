@@ -35,8 +35,9 @@ chronological split: design on early journals, report on later ones (Gate 3).
 ## Promotion gates
 
 1. **Data quality:** run `report --write-gate-evidence` on record journals. It needs real
-   markets, valid mappings, books, timestamps, measured latency, detected breaks and sets, and a
-   latency verdict that is not negative.
+   markets, valid mappings, books, timestamps, measured latency, detected breaks and sets, a
+   latency verdict that is not negative, and **uncached market data**. Recordings over the public
+   REST route cannot pass, because that data is cached for up to 30 s.
 2. **Mathematical correctness:** `pytest` (CI).
 3. **Replay profitability:** at least 50 matches in a *later* sample, with the match-clustered
    bootstrap lower bound of mean P&L above 0. It must also survive the stressed replays above.

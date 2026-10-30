@@ -55,8 +55,13 @@ invalidates any out-of-sample claim.
 
 ## Data and feed
 
-* The score feed is polled. Detection latency is at least the poll interval (2 s) plus the
-  provider's own delay.
+* Public scores and books are cached for up to 30 s, and tracking 12 markets gave real poll
+  intervals of about 3.3 s (scores) and 2.1 s (books). `max_book_staleness_s` and
+  `max_score_staleness_s` limit **data age**: receipt time minus the response's reported cache age.
+* `unknown_cache_age_s` (default 30) is the age assumed for a public-route response that reports
+  none, such as journals recorded before ages were captured. A cache hit with no `Age` header is
+  assumed to be as old as `max-age` allows. Set it to 0 only for labelled research replays.
+* The entry window (`entry_window_s`) runs from when the event data was current, not from receipt.
 * The score string's point column order is inferred from `periodScores`. If ambiguous (all sets
   level), points are treated as unknown rather than guessed, and pricing uses the start of the
   current game.
